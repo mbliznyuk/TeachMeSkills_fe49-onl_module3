@@ -17,7 +17,7 @@ export const Input: React.FC<Props> = ({ labelText, error, ...restProps }) => {
 
 const Label = styled.label`
   display: block;
-  width: fit-content;
+  width: 100%;
   color: var(--text-primary-color);
 `;
 
@@ -29,6 +29,7 @@ const InputWrapper = styled.input<{ $borderColor?: string }>`
   all: unset;
   box-sizing: border-box;
   border: 1px solid ${({ $borderColor }) => $borderColor || 'black'};
+  width: 100%;
 
   &:focus-visible {
     border: 1px solid ${({ $borderColor }) => $borderColor || '#CCCCCCCC'};

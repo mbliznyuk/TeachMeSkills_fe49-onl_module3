@@ -3,33 +3,14 @@ import { Input } from '#ui/input/input';
 import { Button } from '#ui/button';
 
 export const SignUpForm: React.FC = () => {
-  const [name, setName] = useState('');
-  const [email, setEmail] = useState('');
+  const [name, setName] = useState<string>('');
+  const [email, setEmail] = useState<string>('');
+  const [password, setPassword] = useState<string>('');
+  const [confirmedPassword, setConfirmedPassword] = useState<string>('');
+  const [isFormSubmited, setIsFormSubmited] = useState<boolean>(false);
 
-  const [password, setPassword] = useState('');
-  const [confirmedPassword, setConfirmedPassword] = useState('');
-
-  /*
-  const tabItems = [
-    { id: '1', title: 'first' },
-    { id: '2', title: 'second' },
-    { id: '3', title: 'third' },
-  ];
-
-  const [activeTabId, setActiveTabId] = useState(tabItems[0].id);
-  */
-
-  return (
+    return (
     <form>
-      {/* <TabPanel
-        items={[
-          { id: '1', title: 'first' },
-          { id: '2', title: 'second' },
-          { id: '3', title: 'third' },
-        ]}
-        activeId={activeTabId}
-        onTabClick={setActiveTabId} 
-      /> */}
       <Input
         type="text"
         labelText="Name"
@@ -41,7 +22,7 @@ export const SignUpForm: React.FC = () => {
         labelText="Email"
         value={email}
         onChange={({ currentTarget }) => setEmail(currentTarget.value)}
-        error={email ? undefined : `Email shoudn't be empty`}
+        error={!email && isFormSubmited ? `Email shoudn't be empty` : undefined}
       />
       <Input
         type="password"
@@ -57,7 +38,7 @@ export const SignUpForm: React.FC = () => {
           setConfirmedPassword(currentTarget.value)
         }
       />
-      <Button variant="primary" onClick={() => null}>
+      <Button variant="primary" onClick={() => setIsFormSubmited(true)}>
         Sign Up
       </Button>
     </form>

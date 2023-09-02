@@ -26,6 +26,7 @@ export const MainTemplate: React.FC<Props> = ({
         <Footer>
           <FooterDelimiter />
           <Year>{new Date().getFullYear()}</Year>
+          
         </Footer>
       </ContentWithPaddings>
     </MainTemplateWrapper>
@@ -38,21 +39,23 @@ const MainTemplateWrapper = styled.div`
 
   display: flex;
   flex-direction: column;
-  align-items: center;
+  justify-content: center;
 
   background-color: var(--background-primary-color);
 `;
 
 const ContentWithPaddings = styled.div`
-  width: 70%;
+  width: 60%;
   display: flex;
   flex-direction: column;
+  margin: auto;
   flex-grow: 1;
 `;
 
 const Main = styled.main`
   width: 100%;
   flex-grow: 1;
+  margin: auto;
 `;
 
 const BackLinkContainer = styled.div`
@@ -63,14 +66,15 @@ const BackLinkContainer = styled.div`
 
 const TitleContainer = styled.div`
   width: 100%;
-  height: 75px;
   text-align: start;
 `;
 
 const BodyContainer = styled.div`
-  width: 100%;
-  display: flex;
-  justify-content: center;
+  width: 40%;
+  margin: auto;
+  margin-top: 30px;
+  border: 1px solid  var(--text-secondary-color);
+  padding: 35px;
 `;
 
 const Footer = styled.footer`
