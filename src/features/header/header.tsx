@@ -10,9 +10,7 @@ type BarProps = {
   usersList: string[];
 };
 
-export const bottomUsernameLabelStyle: CSSProperties = {
-  borderTop: '1px solid #5463CA',
-};
+
 
 export const Header: React.FC<BarProps> = ({ username, usersList }) => {
   const [isBurgerOpen, setIsBurgerOpen] = useState<boolean>(false);
@@ -32,18 +30,19 @@ export const Header: React.FC<BarProps> = ({ username, usersList }) => {
           <UserNameLabel username={username}></UserNameLabel>
         ) : (
           <UserIcon>
-            {' '}
             <FontAwesomeIcon icon={faUser} />
           </UserIcon>
         )}
       </HeaderWrapper>
-      {isBurgerOpen &&
-        usersList.map((element) => (
-          <UserNameLabel
-            username={element}
-            styles={bottomUsernameLabelStyle}
-          ></UserNameLabel>
-        ))}
+      <UserNameLabelWrapper>
+        {isBurgerOpen &&
+          usersList.map((element) => (
+            <UserNameLabel
+              username={element}
+              styles={bottomUsernameLabelStyle}
+            ></UserNameLabel>
+          ))}
+      </UserNameLabelWrapper>
     </>
   );
 };
@@ -52,6 +51,7 @@ const HeaderWrapper = styled.div`
   background-color: #2536a7;
   height: 60px;
   display: flex;
+  position: relative;
 `;
 
 const Burger = styled.div`
@@ -63,6 +63,7 @@ const Burger = styled.div`
   justify-content: center;
   border-right: 1px solid #5463ca;
   cursor: pointer;
+  font-size: 18px;
 `;
 
 const UserIcon = styled.div`
@@ -73,3 +74,18 @@ const UserIcon = styled.div`
   align-items: center;
   justify-content: center;
 `;
+
+const UserNameLabelWrapper = styled.div`
+  z-index: 5;
+  position: absolute;
+  top: 60px;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+`;
+
+const bottomUsernameLabelStyle: CSSProperties = {
+  borderTop: '1px solid #5463CA',
+  zIndex: '10',
+  width: '170px',
+};

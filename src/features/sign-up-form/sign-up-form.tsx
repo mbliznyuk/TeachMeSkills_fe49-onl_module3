@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Input } from '#ui/input/input';
 import { Button } from '#ui/button';
+import styled from 'styled-components';
 
 export const SignUpForm: React.FC = () => {
   const [name, setName] = useState<string>('');
@@ -10,7 +11,7 @@ export const SignUpForm: React.FC = () => {
   const [isFormSubmited, setIsFormSubmited] = useState<boolean>(false);
 
     return (
-    <form>
+    <FormWrapper>
       <Input
         type="text"
         labelText="Name"
@@ -41,6 +42,14 @@ export const SignUpForm: React.FC = () => {
       <Button variant="primary" onClick={() => setIsFormSubmited(true)}>
         Sign Up
       </Button>
-    </form>
+    </FormWrapper>
   );
 };
+
+const FormWrapper = styled.form`
+  width: 40%;
+  margin: auto;
+  margin-top: 30px;
+  padding: 35px;
+  border: 1px solid var(--border-primary-color);
+`;

@@ -35,17 +35,18 @@ export const MainTemplate: React.FC<Props> = ({
 
 const MainTemplateWrapper = styled.div`
   width: 100%;
-  height: 100dvh;
+  /* height: 100dvh; */
 
   display: flex;
   flex-direction: column;
   justify-content: center;
+  z-index: 2;
 
   background-color: var(--background-primary-color);
 `;
 
 const ContentWithPaddings = styled.div`
-  width: 60%;
+  width: 50%;
   display: flex;
   flex-direction: column;
   margin: auto;
@@ -69,11 +70,7 @@ const TitleContainer = styled.div`
 `;
 
 const BodyContainer = styled.div`
-  width: 40%;
-  margin: auto;
-  margin-top: 30px;
-  border: 1px solid  var(--border-primary-color);
-  padding: 35px;
+
 `;
 
 const Footer = styled.footer`

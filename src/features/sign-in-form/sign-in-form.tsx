@@ -9,7 +9,7 @@ export const SignInForm: React.FC = () => {
   const [isFormSubmited, setIsFormSubmited] = useState<boolean>(false);
 
   return (
-    <form>
+    <FormWrapper>
       <Input
         placeholder="Your email"
         type="email"
@@ -35,9 +35,17 @@ export const SignInForm: React.FC = () => {
         <SignUpFormText>Don't have an account? </SignUpFormText>
         <SignUpFormLink>SignUp</SignUpFormLink>
       </LinkToSignUpFormWrapper>
-    </form>
+    </FormWrapper>
   );
 };
+
+const FormWrapper = styled.form`
+  width: 40%;
+  margin: auto;
+  margin-top: 30px;
+  padding: 35px;
+  border: 1px solid var(--border-primary-color);
+`;
 
 const ForgotPasswordLinkWrapper = styled.div`
   margin-bottom: 25px;
