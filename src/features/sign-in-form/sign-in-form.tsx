@@ -11,6 +11,7 @@ export const SignInForm: React.FC = () => {
   return (
     <form>
       <Input
+        placeholder="Your email"
         type="email"
         labelText="Email"
         value={email}
@@ -18,6 +19,7 @@ export const SignInForm: React.FC = () => {
         error={!email && isFormSubmited ? `Email shoudn't be empty` : undefined}
       />
       <Input
+        placeholder="Your password"
         type="password"
         labelText="Password"
         value={password}

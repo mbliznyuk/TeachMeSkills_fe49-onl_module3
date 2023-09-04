@@ -6,4 +6,5 @@ export const BackLink: React.FC = () => (
 
 const BackLinkWrapper = styled.div`
   color: var(--text-primary-color);
+  margin: 40px 40px 0 40px;
 `;

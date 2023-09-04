@@ -1,11 +1,11 @@
 @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css');
 
 .App {
-  --background-primary-color: #eeeeeeee;
+  --background-primary-color: #ebebeb;
   --background-accent-color: #cccccc;
   --text-primary-color: black;
-  --text-secondary-color: gray;
-  --border-primary-color: gray;
+  --text-secondary-color: #626363;
+  --border-primary-color: #adadad;
   --border-accent-color: #2536a7;
   
   

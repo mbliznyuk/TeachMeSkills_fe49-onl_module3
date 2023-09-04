@@ -60,7 +60,6 @@ const Main = styled.main`
 
 const BackLinkContainer = styled.div`
   width: 100%;
-  height: 50px;
   text-align: start;
 `;
 
@@ -73,7 +72,7 @@ const BodyContainer = styled.div`
   width: 40%;
   margin: auto;
   margin-top: 30px;
-  border: 1px solid  var(--text-secondary-color);
+  border: 1px solid  var(--border-primary-color);
   padding: 35px;
 `;
 
