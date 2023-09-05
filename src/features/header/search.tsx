@@ -26,7 +26,7 @@ export const Search: React.FC<Props> = ({ isActive }) => {
 };
 
 const SearchIconWrapper = styled.div`
-  width: 50px;
+  width: 30px;
   padding: 10px;
   color: white;
   display: flex;
@@ -34,7 +34,7 @@ const SearchIconWrapper = styled.div`
   justify-content: center;
   border-left: 1px solid #5463ca;
   border-right: 1px solid #5463ca;
-  font-size: 18px;
+  font-size: 16px;
 `;
 
 const SearchInput = styled.input`
@@ -55,7 +55,7 @@ const CloseInputIcon = styled.div`
   display: flex;
   align-items: center;
   padding-right: 10px;
-  font-size: 18px;
+  font-size: 16px;
 `;
 
 const SearchInputAlternative = styled.div`

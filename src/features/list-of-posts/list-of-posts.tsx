@@ -1,14 +1,7 @@
-import { BigPostCard } from '../../ui/post_card/big_post_card/big_post_card';
 import { MiddlePostCard } from '../../ui/post_card/middle_post_card/middle_post_card';
+import { styled } from 'styled-components';
 import { PostCardModel } from '../../ui/post_card/post-card.model';
 import { SmallPostCard } from '../../ui/post_card/small_post_card/small_post_card';
-import {
-  LeftWrapperForBigCard,
-  LeftWrapperForMiddleCard,
-  LeftWrapperOfPosts,
-  ListOfPostsWrapper,
-  RightWrapperOfPosts,
-} from './list-of-posts.style';
 
 type ListOfPostsProps = {
   postCards: PostCardModel[];
@@ -20,15 +13,12 @@ export const ListOfPosts: React.FC<ListOfPostsProps> = (
   return (
     <ListOfPostsWrapper>
       <LeftWrapperOfPosts>
-        <LeftWrapperForBigCard>
-          <BigPostCard postCard={props.postCards[0]}></BigPostCard>
-        </LeftWrapperForBigCard>
-        <LeftWrapperForMiddleCard>
-          <MiddlePostCard postCard={props.postCards[1]}></MiddlePostCard>
-          <MiddlePostCard postCard={props.postCards[3]}></MiddlePostCard>
-          <MiddlePostCard postCard={props.postCards[4]}></MiddlePostCard>
-          <MiddlePostCard postCard={props.postCards[5]}></MiddlePostCard>
-        </LeftWrapperForMiddleCard>
+        <MiddlePostCard postCard={props.postCards[1]}></MiddlePostCard>
+        <MiddlePostCard postCard={props.postCards[1]}></MiddlePostCard>
+        <MiddlePostCard postCard={props.postCards[1]}></MiddlePostCard>
+        <MiddlePostCard postCard={props.postCards[3]}></MiddlePostCard>
+        <MiddlePostCard postCard={props.postCards[4]}></MiddlePostCard>
+        <MiddlePostCard postCard={props.postCards[5]}></MiddlePostCard>
       </LeftWrapperOfPosts>
       <RightWrapperOfPosts>
         <SmallPostCard postCard={props.postCards[2]}></SmallPostCard>
@@ -41,3 +31,18 @@ export const ListOfPosts: React.FC<ListOfPostsProps> = (
     </ListOfPostsWrapper>
   );
 };
+
+const ListOfPostsWrapper = styled.div`
+  display: flex;
+  background-color: #f3f3f3;
+  margin-bottom: 20px;
+  width: 1060px;
+  justify-content: space-between;
+`;
+const LeftWrapperOfPosts = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  width: 650px;
+  justify-content: space-between;
+`;
+const RightWrapperOfPosts = styled.div``;

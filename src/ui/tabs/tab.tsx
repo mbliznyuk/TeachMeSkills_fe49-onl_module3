@@ -13,11 +13,14 @@ export interface TabModel {
 }
 
 export const Tabs: React.FC<TabsProps> = (props: TabsProps) => {
-  const [selectedTabId, setSelectedTabId] = useState<number>(props.defaultSelectedTabId || 1);
+  const [selectedTabId, setSelectedTabId] = useState<number>(
+    props.defaultSelectedTabId || 1
+  );
   return (
     <TabsWrapper>
-      {props.tabs.map((element) => (
+      {props.tabs.map((element, id) => (
         <Tab
+          key={id}
           onClick={() => setSelectedTabId(element.id)}
           isSelected={element.id === selectedTabId}
           disabled={element.isDisabled}

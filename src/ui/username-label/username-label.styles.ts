@@ -1,7 +1,7 @@
 import { styled } from 'styled-components';
 
 export const UsernameLabelWrapper = styled.div`
-  width: 200px;
+  width: 170px;
   padding: 10px 15px;
   font-weight: 600;
   background-color: #2536a7;
@@ -9,12 +9,12 @@ export const UsernameLabelWrapper = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  font-size: 16px;
+  font-size: 14px;
 `;
 
 export const UsernameLabel = styled.div`
-  width: 35px;
-  height: 35px;
+  width: 25px;
+  height: 25px;
   padding: 5px;
   margin: 7px;
   font-weight: 600;

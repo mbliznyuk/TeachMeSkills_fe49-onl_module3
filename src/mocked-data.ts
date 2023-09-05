@@ -4,7 +4,7 @@ import { TabModel } from './ui/tabs/tab';
 export const tabsModels: TabModel[] = [
   { id: 1, name: 'All' },
   { id: 2, name: 'My favorites' },
-  { id: 3, name: 'Popular', isDisabled: true },
+  { id: 3, name: 'Popular' },
 ];
 
 export const postCardModels: PostCardModel[] = [
