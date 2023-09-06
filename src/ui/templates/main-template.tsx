@@ -46,7 +46,7 @@ const MainTemplateWrapper = styled.div`
 `;
 
 const ContentWithPaddings = styled.div`
-  width: 50%;
+  width: 70%;
   display: flex;
   flex-direction: column;
   margin: auto;
@@ -70,7 +70,7 @@ const TitleContainer = styled.div`
 `;
 
 const BodyContainer = styled.div`
-
+margin: auto;
 `;
 
 const Footer = styled.footer`

@@ -15,35 +15,35 @@ export const SelectedPostLikes: React.FC = () => {
     setIsDisliked(false);
   }
   return (
-        <IconWrapper>
-          <LikeWrapper>
-            <LikeIcon onClick={like}>
-              {isLiked ? (
-                <i className="fa-solid fa-thumbs-up"></i>
-              ) : (
-                <i className="fa-regular fa-thumbs-up"></i>
-              )}
-            </LikeIcon>
-            {/* <AmountOfLikes>{amountOfLikes}</AmountOfLikes> */}
-            <DislikeIcon onClick={dislike}>
-              {isDisliked ? (
-                <i className="fa-solid fa-thumbs-down"></i>
-              ) : (
-                <i className="fa-regular fa-thumbs-down"></i>
-              )}
-            </DislikeIcon>
-          </LikeWrapper>
-          <SaveIcoonWrapper>
-            <BookmarkIcon onClick={() => setIsSaved(!isSaved)}>
-              {isSaved ? (
-                <i className="fa-solid fa-bookmark"></i>
-              ) : (
-                <i className="fa-regular fa-bookmark"></i>
-              )}
-            </BookmarkIcon>
-            <SavePostText>Add to favorite</SavePostText>
-          </SaveIcoonWrapper>
-        </IconWrapper>
+    <IconWrapper>
+      <LikeWrapper>
+        <LikeIcon onClick={like}>
+          {isLiked ? (
+            <i className="fa-solid fa-thumbs-up"></i>
+          ) : (
+            <i className="fa-regular fa-thumbs-up"></i>
+          )}
+        </LikeIcon>
+        {/* <AmountOfLikes>{amountOfLikes}</AmountOfLikes> */}
+        <DislikeIcon onClick={dislike}>
+          {isDisliked ? (
+            <i className="fa-solid fa-thumbs-down"></i>
+          ) : (
+            <i className="fa-regular fa-thumbs-down"></i>
+          )}
+        </DislikeIcon>
+      </LikeWrapper>
+      <SaveIcoonWrapper>
+        <BookmarkIcon onClick={() => setIsSaved(!isSaved)}>
+          {isSaved ? (
+            <i className="fa-solid fa-bookmark"></i>
+          ) : (
+            <i className="fa-regular fa-bookmark"></i>
+          )}
+        </BookmarkIcon>
+        <SavePostText>Add to favorite</SavePostText>
+      </SaveIcoonWrapper>
+    </IconWrapper>
   );
 };
 
@@ -57,6 +57,7 @@ const IconWrapper = styled.div`
 `;
 
 const LikeWrapper = styled.div`
+  cursor: pointer;
   width: 80px;
   align-items: center;
   display: flex;
@@ -65,6 +66,7 @@ const LikeWrapper = styled.div`
 
 const SaveIcoonWrapper = styled.div`
   width: 120px;
+  cursor: pointer;
   padding: 0 10px;
   display: flex;
   justify-content: space-around;

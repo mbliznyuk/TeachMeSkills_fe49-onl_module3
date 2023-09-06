@@ -1,4 +1,5 @@
 import { ListOfPosts } from '#features/list-of-posts/list-of-posts';
+import { AllPostsNavigationFooter } from '#features/post-navigation-footer/all-posts-navigation-footer';
 import { PostCardModel } from '#ui/post_card/post-card.model';
 import { TabModel, Tabs } from '#ui/tabs/tab';
 import { styled } from 'styled-components';
@@ -17,12 +18,13 @@ export const AllPosts: React.FC<AllPostsProps> = ({ postCards, tabs }) => {
       <AllPostsWrapper>
         <ListOfPosts postCards={postCards}></ListOfPosts>
       </AllPostsWrapper>
+      <AllPostsNavigationFooter></AllPostsNavigationFooter>
     </>
   );
 };
 
 const AllPostsWrapper = styled.div`
-  width: 90%;
+  width: 100%;
   display: flex;
   flex-direction: column;
   margin: auto;

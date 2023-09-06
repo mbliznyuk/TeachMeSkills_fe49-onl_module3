@@ -71,9 +71,9 @@ export const MiddlePostCard: React.FC<MiddlePostCardProps> = (
 };
 
 const MiddlePostCardWrapper = styled.div`
-  width: 300px;
-  background-color: #f3f3f3;
-  padding: 15px 10px 16px 10px;
+  width: 250px;
+  background-color: var(--background-primary-color);
+  padding: 10px;
   border-bottom: 1px solid #cfd0d1;
   display: flex;
   flex-direction: column;
@@ -86,20 +86,20 @@ const MainWrapper = styled.div`
 
 const PostCardDate = styled.div`
   color: #8b8a90;
-  font-size: 18px;
-  line-height: 19px;
+  font-size: 14px;
+  line-height: 16px;
 `;
 
 const PostCardTitle = styled.h2`
   color: #403f44;
-  font-size: 20px;
+  font-size: 18px;
   margin: 10px 0;
   line-height: 20px;
 `;
 
 const CardImageWrapper = styled.div`
   width: 100%;
-  height: 190px;
+  height: 130px;
   margin: auto;
   margin-bottom: 15px;
   & img {
@@ -118,32 +118,34 @@ const IconWrapper = styled.div`
 `;
 
 const LikeWrapper = styled.div`
+  cursor: pointer;
   width: 25%;
   align-items: center;
   display: flex;
   justify-content: space-between;
-  font-size: 20px;
+  font-size: 18px;
 `;
 
 const SaveIcoonWrapper = styled.div`
+  cursor: pointer;
   width: 20%;
   display: flex;
   justify-content: space-between;
-  font-size: 20px;
+  font-size: 18px;
 `;
 
 const BookmarkIcon = styled.div`
   display: flex;
   justify-content: space-between;
-  font-size: 20px;
+  font-size: 18px;
 `;
 
 const LikeIcon = styled.div`
-  font-size: 20px;
+  font-size: 18px;
   margin-right: 3px;
 `;
 const DislikeIcon = styled.div`
-  font-size: 20px;
+  font-size: 18px;
 `;
 
 const AmountOfLikes = styled.div`

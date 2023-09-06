@@ -1,8 +1,9 @@
 import { styled } from 'styled-components';
 import { useState } from 'react';
 import { PostCardModel } from '#ui/post_card/post-card.model';
-import { PostNavigationFooter } from '#features/post-navigation-footer/post-navigation-footer';
+
 import { SelectedPostLikes } from '#features/selected-post-likes/selected-post-likes';
+import { PostNavigationFooter } from '#features/post-navigation-footer/selected-post-navigation-footer';
 
 type SelectedPostProps = {
   postCard: PostCardModel;
@@ -33,7 +34,7 @@ export const SelectedPost: React.FC<SelectedPostProps> = ({ postCard, previousPo
 };
 
 const PostWrapper = styled.div`
-  width: 90%;
+  width: 70%;
   display: flex;
   flex-direction: column;
   margin: auto;
@@ -41,6 +42,7 @@ const PostWrapper = styled.div`
 `;
 
 const MainWrapper = styled.div`
+margin: auto;
   margin-bottom: 25px;
 `;
 
@@ -50,16 +52,16 @@ const PostTextWrapper = styled.div`
 `;
 const PostText = styled.p`
   color: var(--text-secondary-color);
-  font-size: 20px;
+  font-size: 16px;
   word-wrap: break-word;
   white-space: pre-wrap;
-  line-height: 26px;
-  margin-bottom: 30px;
+  line-height: 18px;
+  margin-bottom: 20px;
 `;
 
 const CardImageWrapper = styled.div`
   width: 90%;
-  height: 250px;
+  height: 220px;
   margin: auto;
   margin-bottom: 25px;
   & img {

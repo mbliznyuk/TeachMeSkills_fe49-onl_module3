@@ -32,10 +32,12 @@ export const SmallPostCard: React.FC<SmallPostCardProps> = (
     <SmallPostCardWrapper>
       <SmallMainWrapper>
         <SmallCardtextWrapper>
-            <SmallPostCardDate>{props.postCard.date}</SmallPostCardDate>
-            <SmallPostCardTitle>{props.postCard.title}</SmallPostCardTitle>
+          <SmallPostCardDate>{props.postCard.date}</SmallPostCardDate>
+          <SmallPostCardTitle>{props.postCard.title}</SmallPostCardTitle>
         </SmallCardtextWrapper>
-        <SmallCardImageWrapper><img src={props.postCard.image} alt='#'></img></SmallCardImageWrapper>
+        <SmallCardImageWrapper>
+          <img src={props.postCard.image} alt="#"></img>
+        </SmallCardImageWrapper>
       </SmallMainWrapper>
       <SmallIconWrapper>
         <SmallLikeWrapper>
@@ -70,37 +72,36 @@ export const SmallPostCard: React.FC<SmallPostCardProps> = (
   );
 };
 
- const SmallPostCardWrapper = styled.div`
-  width: 350px;
-  background-color: #f3f3f3;
-  padding: 10px 20px;
+const SmallPostCardWrapper = styled.div`
+  width: 269px;
+  background-color: var(--background-primary-color);
+  padding: 10px 10px;
   border-bottom: 1px solid #cfd0d1;
-  height: 157px;
 `;
 const SmallMainWrapper = styled.div`
   display: flex;
   justify-content: space-between;
-  margin-bottom: 15px; 
+  margin-bottom: 15px;
 `;
 const SmallCardtextWrapper = styled.div`
-  width: 75%;
+  width: 73%;
 `;
 const SmallPostCardDate = styled.div`
   color: #8b8a90;
-  font-size: 16px;
-  height: 18px;
+  font-size: 14px;
+  height: 16px;
 `;
 
 const SmallPostCardTitle = styled.h2`
-  color: #403f44;
-  line-height: 26px;
-  font-size: 22px;
+  color: var(--text-secondary-color);
+  line-height: 16px;
+  font-size: 16px;
   margin: 10px 0;
 `;
 
 const SmallCardImageWrapper = styled.div`
-  width: 80px;
-  height: 80px;
+  width: 60px;
+  height: 60px;
   & img {
     width: 100%;
     height: 100%;
@@ -112,37 +113,39 @@ const SmallIconWrapper = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: 26px;
+  height: 24px;
 `;
 const SmallLikeWrapper = styled.div`
+  cursor: pointer;
   width: 20%;
   display: flex;
   justify-content: space-between;
-  font-size: 20px;
+  font-size: 16px;
   align-items: center;
 `;
 const SmallSaveIcoonWrapper = styled.div`
+  cursor: pointer;
   width: 20%;
   display: flex;
   justify-content: space-between;
-  font-size: 20px;
+  font-size: 16px;
 `;
 
 const BookmarkIcon = styled.div`
   display: flex;
   justify-content: space-between;
-  font-size: 20px;
+  font-size: 16px;
 `;
 
 const LikeIcon = styled.div`
-  font-size: 20px;
+  font-size: 16px;
   margin-right: 3px;
 `;
 const DislikeIcon = styled.div`
-  font-size: 20px;
+  font-size: 16px;
 `;
 
 const AmountOfLikes = styled.div`
-  font-size: 16px;
+  font-size: 14px;
   margin-right: 10px;
 `;

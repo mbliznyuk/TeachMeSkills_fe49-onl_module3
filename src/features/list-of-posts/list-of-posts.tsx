@@ -14,8 +14,8 @@ export const ListOfPosts: React.FC<ListOfPostsProps> = (
     <ListOfPostsWrapper>
       <LeftWrapperOfPosts>
         <MiddlePostCard postCard={props.postCards[1]}></MiddlePostCard>
-        <MiddlePostCard postCard={props.postCards[1]}></MiddlePostCard>
-        <MiddlePostCard postCard={props.postCards[1]}></MiddlePostCard>
+        <MiddlePostCard postCard={props.postCards[2]}></MiddlePostCard>
+        <MiddlePostCard postCard={props.postCards[9]}></MiddlePostCard>
         <MiddlePostCard postCard={props.postCards[3]}></MiddlePostCard>
         <MiddlePostCard postCard={props.postCards[4]}></MiddlePostCard>
         <MiddlePostCard postCard={props.postCards[5]}></MiddlePostCard>
@@ -34,15 +34,18 @@ export const ListOfPosts: React.FC<ListOfPostsProps> = (
 
 const ListOfPostsWrapper = styled.div`
   display: flex;
-  background-color: #f3f3f3;
+  background-color: var(--background-primary-color);
   margin-bottom: 20px;
-  width: 1060px;
+  width: 850px;
   justify-content: space-between;
+  margin: auto;
 `;
 const LeftWrapperOfPosts = styled.div`
   display: flex;
   flex-wrap: wrap;
-  width: 650px;
+  width: 550px;
   justify-content: space-between;
 `;
-const RightWrapperOfPosts = styled.div``;
+const RightWrapperOfPosts = styled.div`
+  width: 295px;
+`;
