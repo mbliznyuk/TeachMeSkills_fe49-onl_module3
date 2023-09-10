@@ -39,7 +39,7 @@ export const MiddlePostCard: React.FC<MiddlePostCardProps> = (
       </MainWrapper>
       <IconWrapper>
         <LikeWrapper>
-          <LikeIcon onClick={like}>
+          <LikeIcon onClick={() => like()}>
             {isLiked ? (
               <i className="fa-solid fa-thumbs-up"></i>
             ) : (
@@ -47,7 +47,7 @@ export const MiddlePostCard: React.FC<MiddlePostCardProps> = (
             )}
           </LikeIcon>
           <AmountOfLikes>{amountOfLikes}</AmountOfLikes>
-          <DislikeIcon onClick={dislike}>
+          <DislikeIcon onClick={() => dislike()}>
             {isDisliked ? (
               <i className="fa-solid fa-thumbs-down"></i>
             ) : (
@@ -74,7 +74,7 @@ const MiddlePostCardWrapper = styled.div`
   width: 250px;
   background-color: var(--background-primary-color);
   padding: 10px;
-  border-bottom: 1px solid #cfd0d1;
+  border-bottom: 1px solid var(--border-primary-color);
   display: flex;
   flex-direction: column;
 `;
@@ -91,8 +91,8 @@ const PostCardDate = styled.div`
 `;
 
 const PostCardTitle = styled.h2`
-  color: #403f44;
-  font-size: 18px;
+  color:var(--text-primary-color);
+  font-size: 16px;
   margin: 10px 0;
   line-height: 20px;
 `;
@@ -132,6 +132,7 @@ const SaveIcoonWrapper = styled.div`
   display: flex;
   justify-content: space-between;
   font-size: 18px;
+  color: var(--border-accent-color);
 `;
 
 const BookmarkIcon = styled.div`
@@ -143,12 +144,15 @@ const BookmarkIcon = styled.div`
 const LikeIcon = styled.div`
   font-size: 18px;
   margin-right: 3px;
+  color: var(--border-accent-color);
 `;
 const DislikeIcon = styled.div`
   font-size: 18px;
+  color: var(--border-accent-color);
 `;
 
 const AmountOfLikes = styled.div`
   font-size: 16px;
   margin-right: 10px;
+  color: var(--border-accent-color);
 `;

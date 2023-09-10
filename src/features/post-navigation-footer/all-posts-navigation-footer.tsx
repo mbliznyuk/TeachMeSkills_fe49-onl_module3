@@ -24,7 +24,7 @@ export const AllPostsNavigationFooter: React.FC<Props> = () => {
 
 const PostNavigationFooterWrapper = styled.div`
   display: flex;
-  height: 90px;
+  height: 72px;
   justify-content: space-between;
   align-items: center;
 `;

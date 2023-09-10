@@ -22,7 +22,7 @@ export const Tabs: React.FC<TabsProps> = (props: TabsProps) => {
         <Tab
           key={id}
           onClick={() => setSelectedTabId(element.id)}
-          isSelected={element.id === selectedTabId}
+          $isSelected={element.id === selectedTabId}
           disabled={element.isDisabled}
         >
           {element.name}
@@ -40,7 +40,7 @@ const TabsWrapper = styled.div`
   margin-bottom: 20px;
 `;
 
-const Tab = styled.button<{isSelected: boolean}>`
+const Tab = styled.button<{$isSelected: boolean}>`
   all: unset;
   color: black;
   font-size: 18px;
@@ -48,10 +48,10 @@ const Tab = styled.button<{isSelected: boolean}>`
   margin: 0 20px;
   padding: 10px 10px;
   border-bottom: 3px solid;
-  border-color: ${({isSelected}) =>(isSelected ? '#424147' : 'transparent')};
+  border-color: ${({$isSelected}) =>($isSelected ? 'var(--border-accent-color)' : 'transparent')};
   cursor: pointer;
   &:hover {
-    color: #2436A7;
+    color: var(--text-hover-color);
   }
 
   &:disabled{
