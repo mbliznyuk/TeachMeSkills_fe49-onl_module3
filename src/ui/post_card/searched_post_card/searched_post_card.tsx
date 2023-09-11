@@ -12,13 +12,13 @@ export const SearchedPostCard: React.FC<SearchedPostCardProps> = (
   return (
     <PostCardWrapper>
       <MainWrapper>
-        <SmallCardImageWrapper>
+        <CardImageWrapper>
           <img src={props.postCard.image} alt="#"></img>
-        </SmallCardImageWrapper>
-        <SmallCardtextWrapper>
-          <SmallPostCardDate>{props.postCard.date}</SmallPostCardDate>
-          <SmallPostCardTitle>{props.postCard.title}</SmallPostCardTitle>
-        </SmallCardtextWrapper>
+        </CardImageWrapper>
+        <CardtextWrapper>
+          <PostCardDate>{props.postCard.date}</PostCardDate>
+          <PostCardTitle>{props.postCard.title}</PostCardTitle>
+        </CardtextWrapper>
       </MainWrapper>
       <DefaultPostLikes
         likesAmount={props.postCard.likes_amount}
@@ -28,7 +28,6 @@ export const SearchedPostCard: React.FC<SearchedPostCardProps> = (
 };
 
 const PostCardWrapper = styled.div`
-  width: 100%;
   margin: auto;
   background-color: var(--background-primary-color);
   padding: 10px 10px;
@@ -39,23 +38,23 @@ const MainWrapper = styled.div`
   justify-content: flex-start;
   margin-bottom: 15px;
 `;
-const SmallCardtextWrapper = styled.div`
+const CardtextWrapper = styled.div`
   width: 73%;
 `;
-const SmallPostCardDate = styled.div`
+const PostCardDate = styled.div`
   color: #8b8a90;
   font-size: 14px;
   height: 16px;
 `;
 
-const SmallPostCardTitle = styled.h2`
+const PostCardTitle = styled.h2`
   color: var(--text-primary-color);
   line-height: 16px;
   font-size: 16px;
   margin: 10px 0;
 `;
 
-const SmallCardImageWrapper = styled.div`
+const CardImageWrapper = styled.div`
   width: 80px;
   height: 80px;
   margin-right: 25px;

@@ -3,7 +3,7 @@ import { BackLink } from '#features/back-link/back-link';
 import { Header } from '#features/header/header';
 import { MainTemplate } from '#ui/templates/main-template';
 import { Title } from '#ui/title/title';
-import { postCardModels, tabsModels } from '../mocked-data';
+import { mockedCurrentUsername, mockedPostCardModels, mockedTabsModels, mockedUsernames } from '../mocked-data';
 
 type AllPostsProps = {};
 
@@ -12,13 +12,13 @@ export const AllPostsPage: React.FC<AllPostsProps> = () => {
     <MainTemplate
       header={
         <Header
-          usersList={['Artem Malkin', 'Maria Bliznyuk']}
-          username="Maria Bliznyuk"
+          usersList={mockedUsernames}
+          username={mockedCurrentUsername}
         ></Header>
       }
       backLink={<BackLink />}
       title={<Title>Blog</Title>}
-      body={<AllPosts postCards={postCardModels} tabs={tabsModels} />}
+      body={<AllPosts postCards={mockedPostCardModels} tabs={mockedTabsModels} />}
     />
   );
 };

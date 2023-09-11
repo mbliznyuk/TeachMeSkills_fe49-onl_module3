@@ -4,7 +4,7 @@ import { SelectedPost } from '#features/selected-post/selected-post-body';
 import { PostCardModel } from '#ui/post_card/post-card.model';
 import { MainTemplate } from '#ui/templates/main-template';
 import { Title } from '#ui/title/title';
-import { postCardModels } from '../mocked-data';
+import { mockedPostCardModels } from '../mocked-data';
 
 type SelectedPostProps = {
   selectedPost: PostCardModel;
@@ -25,9 +25,9 @@ export const SelectedPostPage: React.FC<SelectedPostProps> = ({
       title={<Title>{selectedPost.title}</Title>}
       body={
         <SelectedPost
-          previousPostTitle={postCardModels[2].title}
-          nextPostTitle={postCardModels[4].title}
-          postCard={postCardModels[3]}
+          previousPostTitle={mockedPostCardModels[2].title}
+          nextPostTitle={mockedPostCardModels[4].title}
+          postCard={mockedPostCardModels[3]}
         />
       }
     />
