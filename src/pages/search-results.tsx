@@ -1,3 +1,4 @@
+import { BackLink } from '#features/back-link/back-link';
 import { Header } from '#features/header/header';
 import { AllPostsNavigationFooter } from '#features/post-navigation-footer/all-posts-navigation-footer';
 import { Footer } from '#ui/footer/footer';
@@ -11,7 +12,7 @@ type SearchResultsProps = {
 };
 
 export const SearchResultsPage: React.FC<SearchResultsProps> = ({
-  postCards
+  postCards,
 }) => {
   return (
     <SearchResults>
@@ -20,11 +21,14 @@ export const SearchResultsPage: React.FC<SearchResultsProps> = ({
         username="Maria Bliznyuk"
       ></Header>
       <Container>
+        <BackLink></BackLink>
         <TitleWrapper>
           <Title children={'Search results ‘Astronauts’'} />
         </TitleWrapper>
         <SearchedPostsWrapper>
-          {postCards.map((element, id) =>  <SearchedPostCard key={id} postCard={element}></SearchedPostCard>)}  
+          {postCards.map((element, id) => (
+            <SearchedPostCard key={id} postCard={element}></SearchedPostCard>
+          ))}
         </SearchedPostsWrapper>
         <AllPostsNavigationFooter></AllPostsNavigationFooter>
         <Footer></Footer>

@@ -6,8 +6,9 @@
   --background-accent-color2: #5360CD;
   --background-accent-clor3: #E8E8E8;
   --text-primary-color: #313037;
-  --text-secondary-color: #8D8E97;
+  --text-secondary-color: #848486;
   --text-hover-color:#2231AA;
+  --switcher-color:#5360CD;
   --text-error-color: #FD3419;
   --border-primary-color: #8D8E97;
   --border-accent-color: #313037;
@@ -18,6 +19,7 @@
     --background-accent-color: #2231AA;
     --background-accent-color2: #5360CD;
     --background-accent-clor3: #E8E8E8;
+    --switcher-color:#ffff;
     --text-primary-color: #FFFFFF;
     --text-secondary-color: #8D8E97;
     --text-error-color: #FD3419;

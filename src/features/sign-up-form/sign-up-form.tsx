@@ -47,7 +47,7 @@ export const SignUpForm: React.FC = () => {
 };
 
 const FormWrapper = styled.form`
-  width: 40%;
+  width: 30%;
   margin: auto;
   margin-top: 30px;
   padding: 35px;

@@ -72,7 +72,7 @@ const SaveIcoonWrapper = styled.div`
   justify-content: space-around;
   height: 30px;
   align-items: center;
-  background-color: var(--background-accent-color);
+  background-color: var(--background-accent-clor3);
   border-radius: 4px;
   text-align: center;
 `;
@@ -91,7 +91,7 @@ const LikeIcon = styled.div`
   margin-right: 3px;
   width: 40px;
   height: 30px;
-  background-color: var(--background-accent-color);
+  background-color: var(--background-accent-clor3);
   text-align: center;
   border-radius: 4px;
 `;
@@ -100,7 +100,7 @@ const DislikeIcon = styled.div`
   margin-right: 3px;
   width: 40px;
   height: 30px;
-  background-color: var(--background-accent-color);
+  background-color: var(--background-accent-clor3);
   text-align: center;
   border-radius: 4px;
 `;

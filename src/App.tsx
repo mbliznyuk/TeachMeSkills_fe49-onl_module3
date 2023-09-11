@@ -11,7 +11,7 @@ import { Success } from './pages/success';
 function App() {
   return (
     <div className="App">
-      <ThemeSwitcher />
+      {/* <ThemeSwitcher></ThemeSwitcher> */}
       <SignUp />
       <SignIn />
       <Success/>

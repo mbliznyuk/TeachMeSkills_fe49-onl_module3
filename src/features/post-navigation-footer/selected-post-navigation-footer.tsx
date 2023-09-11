@@ -46,6 +46,7 @@ const NexPostNavigationWrapper = styled.div`
   justify-content: flex-end;
   align-items: center;
   width: 45%;
+  color: var(--text-primary-color);
 `;
 
 const PreviousPostNavigationWrapper = styled.div`
@@ -54,11 +55,15 @@ const PreviousPostNavigationWrapper = styled.div`
   display: flex;
   align-items: center;
   width: 45%;
+  color: var(--text-primary-color);
 `;
 
 const NextTextWrapper = styled.div``;
 const NextText = styled.div`
   font-weight: bold;
+  &:hover{
+    color: var(--background-accent-color);
+  }
 `;
 const NextPostTitle = styled.div`
   font-size: 12px;
@@ -68,13 +73,22 @@ const PreviousPostTitle = styled.div`
 `;
 const PreviousText = styled.div`
   font-weight: bold;
+  &:hover{
+    color: var(--background-accent-color);
+  }
 `;
 const PreviousTextWrapper = styled.div``;
 
 const NextIcon = styled.div`
   margin-left: 10px;
+  &:hover{
+    color: var(--background-accent-color);
+  }
 `;
 
 const PreviousIcon = styled.div`
   margin-right: 10px;
+  &:hover{
+    color: var(--background-accent-color);
+  }
 `;

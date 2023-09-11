@@ -40,7 +40,7 @@ export const SignInForm: React.FC = () => {
 };
 
 const FormWrapper = styled.form`
-  width: 40%;
+  width: 30%;
   margin: auto;
   margin-top: 30px;
   padding: 35px;
@@ -53,6 +53,7 @@ const ForgotPasswordLinkWrapper = styled.div`
 const ForgotPasswordLink = styled.a`
   all: unset;
   cursor: pointer;
+  color: var(--text-secondary-color);
 `;
 
 const LinkToSignUpFormWrapper = styled.div`
@@ -60,9 +61,12 @@ const LinkToSignUpFormWrapper = styled.div`
   text-align: center;
 `;
 
-const SignUpFormText = styled.span``;
+const SignUpFormText = styled.span`
+color: var(--text-primary-color);
+`;
 
 const SignUpFormLink = styled.a`
   all: unset;
   color: blue;
+  cursor: pointer;
 `;

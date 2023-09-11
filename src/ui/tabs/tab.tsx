@@ -42,7 +42,7 @@ const TabsWrapper = styled.div`
 
 const Tab = styled.button<{$isSelected: boolean}>`
   all: unset;
-  color: black;
+  color: var(--text-primary-color);
   font-size: 18px;
   font-weight: 500;
   margin: 0 20px;
