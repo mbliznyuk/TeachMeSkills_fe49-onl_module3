@@ -1,10 +1,11 @@
 import { ThemeSwitcher } from '#features/theme-switcher/theme-switcher';
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
 export const BackLink: React.FC = () => (
   <BackLinkWrapper>
-    <BackLinkText>Back to home</BackLinkText>
-    <ThemeSwitcher></ThemeSwitcher>
+    <Link to={'/'}><BackLinkText>Back to home</BackLinkText></Link>
+    {/* <ThemeSwitcher></ThemeSwitcher> */}
     </BackLinkWrapper>
 );
 

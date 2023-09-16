@@ -4,13 +4,14 @@ import { SuccessForm } from '#features/success-form/success-form';
 import { MainTemplate } from '#ui/templates/main-template';
 import { Title } from '#ui/title/title';
 
-export const Success: React.FC = () => {
+export const AddPostPage: React.FC = () => {
   return (
     <MainTemplate
       header={
         <Header
-          usersList={['Artem Malkin', 'Maria Bliznyuk']}
+          usersList={['Maria Bliznyuk']}
           isAuthorised={true}
+          username='Maria Bliznyuk'
         ></Header>
       }
       backLink={<BackLink />}

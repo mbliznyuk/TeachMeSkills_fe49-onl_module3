@@ -7,7 +7,12 @@ import { Header } from '#features/header/header';
 export const SignUp: React.FC = () => {
   return (
     <MainTemplate
-      header={<Header usersList={['Artem Malkin', 'Maria Bliznyuk']}></Header>}
+      header={
+        <Header
+          usersList={['Artem Malkin', 'Maria Bliznyuk']}
+          isAuthorised={false}
+        ></Header>
+      }
       backLink={<BackLink />}
       title={<Title>Sign Up</Title>}
       body={<SignUpForm />}

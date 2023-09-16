@@ -1,5 +1,6 @@
-import { MiddlePostCard } from '../../ui/post_card/middle_post_card/middle_post_card';
+import { Link } from 'react-router-dom';
 import { styled } from 'styled-components';
+import { MiddlePostCard } from '../../ui/post_card/middle_post_card/middle_post_card';
 import { PostCardModel } from '../../ui/post_card/post-card.model';
 import { SmallPostCard } from '../../ui/post_card/small_post_card/small_post_card';
 
@@ -10,27 +11,23 @@ type ListOfPostsProps = {
 export const ListOfPosts: React.FC<ListOfPostsProps> = (
   props: ListOfPostsProps
 ) => {
+
+  const getPostCardbyId = (id: number) => props.postCards.find(item => (item.id === id))
   return (
     <ListOfPostsWrapper>
       <LeftWrapperOfPosts>
-        <MiddlePostCard postCard={props.postCards[1]}></MiddlePostCard>
-        <MiddlePostCard postCard={props.postCards[2]}></MiddlePostCard>
-        <MiddlePostCard postCard={props.postCards[9]}></MiddlePostCard>
-        <MiddlePostCard postCard={props.postCards[3]}></MiddlePostCard>
-        <MiddlePostCard postCard={props.postCards[4]}></MiddlePostCard>
-        <MiddlePostCard postCard={props.postCards[5]}></MiddlePostCard>
+        {[1, 2, 9, 3, 4, 5].map((element, id) => <StyledLink key={id} to={`/posts/${element}`}><MiddlePostCard key={id} postCard={getPostCardbyId(element)!}></MiddlePostCard></StyledLink>)}
       </LeftWrapperOfPosts>
       <RightWrapperOfPosts>
-        <SmallPostCard postCard={props.postCards[2]}></SmallPostCard>
-        <SmallPostCard postCard={props.postCards[6]}></SmallPostCard>
-        <SmallPostCard postCard={props.postCards[7]}></SmallPostCard>
-        <SmallPostCard postCard={props.postCards[8]}></SmallPostCard>
-        <SmallPostCard postCard={props.postCards[9]}></SmallPostCard>
-        <SmallPostCard postCard={props.postCards[2]}></SmallPostCard>
+        {[2, 6, 7, 8, 9, 2].map((element, id) => <StyledLink key={id} to={`/posts/${element}`}><SmallPostCard key={id} postCard={getPostCardbyId(element)!}></SmallPostCard></StyledLink>)}
       </RightWrapperOfPosts>
     </ListOfPostsWrapper>
   );
 };
+
+const StyledLink = styled(Link)`
+text-decoration: unset;
+`;
 
 const ListOfPostsWrapper = styled.div`
   display: flex;
