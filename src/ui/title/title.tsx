@@ -9,6 +9,8 @@ export const Title: React.FC<Props> = ({ children }) => (
 );
 
 const TitleWrapper = styled.h1`
-  height: 40px;
+  line-height: 36px;
+  font-size: 30px;
+  margin: 30px 20px;
   color: var(--text-primary-color);
 `;
