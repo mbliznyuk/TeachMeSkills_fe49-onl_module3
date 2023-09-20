@@ -4,44 +4,46 @@ import { CSSProperties, useState } from 'react';
 import { UserNameLabel } from '../../ui/username-label/username-label';
 import { Search } from './search';
 import styled from 'styled-components';
+import { BurgerMenu } from '#features/burger-menu/burger-menu';
 
 type BarProps = {
   username?: string;
   usersList: string[];
+  isAuthorised: boolean;
 };
 
-export const Header: React.FC<BarProps> = ({ username, usersList }) => {
+export const Header: React.FC<BarProps> = ({
+  username,
+  usersList,
+  isAuthorised,
+}) => {
   const [isBurgerOpen, setIsBurgerOpen] = useState<boolean>(false);
 
   return (
     <>
       <HeaderWrapper>
-        <Burger onClick={() => setIsBurgerOpen(!isBurgerOpen)}>
+        <Burger onClick={(event) => setIsBurgerOpen(!isBurgerOpen)}>
           {isBurgerOpen ? (
             <FontAwesomeIcon icon={faXmark} />
           ) : (
             <FontAwesomeIcon icon={faBars} />
           )}
         </Burger>
-        <Search isActive={!isBurgerOpen}></Search>
-        {!!username ? (
-          <UserNameLabel username={username}></UserNameLabel>
+        <Search></Search>
+        {isAuthorised ? (
+          <UserNameLabel username={username!}></UserNameLabel>
         ) : (
           <UserIcon>
             <FontAwesomeIcon icon={faUser} />
           </UserIcon>
         )}
       </HeaderWrapper>
-      <UserNameLabelWrapper>
-        {isBurgerOpen &&
-          usersList.map((element, id) => (
-            <UserNameLabel
-              key={id}
-              username={element}
-              styles={bottomUsernameLabelStyle}
-            ></UserNameLabel>
-          ))}
-      </UserNameLabelWrapper>
+      <div style={{display: isBurgerOpen ? 'inherit' : 'none'}}>
+        <BurgerMenu
+          isAuthorised={isAuthorised}
+          username={username}
+        ></BurgerMenu>
+      </div>
     </>
   );
 };
@@ -74,15 +76,7 @@ const UserIcon = styled.div`
   justify-content: center;
 `;
 
-const UserNameLabelWrapper = styled.div`
-  z-index: 5;
-  position: absolute;
-  top: 50px;
-  left: 0;
-  display: flex;
-  flex-direction: column;
-`;
-
+// TODO: remove
 const bottomUsernameLabelStyle: CSSProperties = {
   borderTop: '1px solid #5463CA',
   zIndex: '10',

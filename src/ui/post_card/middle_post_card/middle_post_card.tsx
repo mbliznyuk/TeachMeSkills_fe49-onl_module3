@@ -37,7 +37,7 @@ export const MiddlePostCard: React.FC<MiddlePostCardProps> = (
         <PostCardDate>{props.postCard.date}</PostCardDate>
         <PostCardTitle>{props.postCard.title}</PostCardTitle>
       </MainWrapper>
-      <IconWrapper>
+      <IconWrapper onClick={(event) => {event.stopPropagation(); event.preventDefault()}}>
         <LikeWrapper>
           <LikeIcon onClick={() => like()}>
             {isLiked ? (
@@ -73,7 +73,7 @@ export const MiddlePostCard: React.FC<MiddlePostCardProps> = (
 const MiddlePostCardWrapper = styled.div`
   width: 250px;
   background-color: var(--background-primary-color);
-  padding: 10px;
+  padding: 12px;
   border-bottom: 1px solid var(--border-primary-color);
   display: flex;
   flex-direction: column;
@@ -87,7 +87,7 @@ const MainWrapper = styled.div`
 const PostCardDate = styled.div`
   color: #8b8a90;
   font-size: 14px;
-  line-height: 16px;
+  line-height: 18px;
 `;
 
 const PostCardTitle = styled.h2`

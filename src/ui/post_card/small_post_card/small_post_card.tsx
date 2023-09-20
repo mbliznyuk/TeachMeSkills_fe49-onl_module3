@@ -73,7 +73,6 @@ export const SmallPostCard: React.FC<SmallPostCardProps> = (
 };
 
 const SmallPostCardWrapper = styled.div`
-  width: 269px;
   background-color: var(--background-primary-color);
   padding: 10px 10px;
   border-bottom: 1px solid var(--border-primary-color);

@@ -5,15 +5,16 @@ import { MainTemplate } from '#ui/templates/main-template';
 import { Title } from '#ui/title/title';
 import { mockedCurrentUsername, mockedPostCardModels, mockedTabsModels, mockedUsernames } from '../mocked-data';
 
-type AllPostsProps = {};
 
-export const AllPostsPage: React.FC<AllPostsProps> = () => {
+
+export const AllPostsPage: React.FC= () => {
   return (
     <MainTemplate
       header={
         <Header
           usersList={mockedUsernames}
           username={mockedCurrentUsername}
+          isAuthorised={true}
         ></Header>
       }
       backLink={<BackLink />}

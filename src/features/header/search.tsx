@@ -1,24 +1,31 @@
 import { faMagnifyingGlass, faXmark } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { useState } from 'react';
 import styled from 'styled-components';
 
-type Props = {
-  isActive: boolean;
-};
-export const Search: React.FC<Props> = ({ isActive }) => {
+type Props = {};
+
+export const Search: React.FC<Props> = () => {
+  const [isSearchActive, setIsSearchActive] = useState<boolean>(false);
+  const [searchedText, setSearchedText] = useState<string>('');
+
   return (
     <>
-      {isActive ? (
+      {isSearchActive ? (
         <>
-          <SearchInput placeholder="Search..."></SearchInput>
-          <CloseInputIcon>
+          <SearchInput
+            placeholder="Search..."
+            value={searchedText}
+            onChange={(event) => setSearchedText(event.currentTarget.value)}
+          ></SearchInput>
+          <CloseInputIcon onClick={() => setSearchedText('')}>
             <FontAwesomeIcon icon={faXmark} />
           </CloseInputIcon>
         </>
       ) : (
         <SearchInputAlternative></SearchInputAlternative>
       )}
-      <SearchIconWrapper>
+      <SearchIconWrapper onClick={() => setIsSearchActive(!isSearchActive)}>
         <FontAwesomeIcon icon={faMagnifyingGlass} />
       </SearchIconWrapper>
     </>

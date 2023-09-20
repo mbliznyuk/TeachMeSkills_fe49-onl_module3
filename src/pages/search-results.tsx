@@ -19,6 +19,7 @@ export const SearchResultsPage: React.FC<SearchResultsProps> = ({
       <Header
         usersList={['Artem Malkin', 'Maria Bliznyuk']}
         username="Maria Bliznyuk"
+        isAuthorised={true}
       ></Header>
       <Container>
         <BackLink></BackLink>

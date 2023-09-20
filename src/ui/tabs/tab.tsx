@@ -3,18 +3,21 @@ import { styled } from 'styled-components';
 
 type TabsProps = {
   tabs: TabModel[];
-  defaultSelectedTabId?: number;
+  selectedTab: string;
+  setSelectedTab: (id: string) => void;
+  defaultSelectedTabId?:string;
+
 };
 
 export interface TabModel {
-  id: number;
+  id: string;
   name: string;
   isDisabled?: boolean;
 }
 
 export const Tabs: React.FC<TabsProps> = (props: TabsProps) => {
-  const [selectedTabId, setSelectedTabId] = useState<number>(
-    props.defaultSelectedTabId || 1
+  const [selectedTabId, setSelectedTabId] = useState<string>(
+    props.defaultSelectedTabId || 'all'
   );
   return (
     <TabsWrapper>

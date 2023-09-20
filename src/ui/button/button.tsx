@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 type Props = {
-  variant: 'primary' | 'secondary';
+  variant: 'primary' | 'secondary' | 'default';
   children: string;
   disabled?: boolean;
   onClick: () => void;
@@ -28,7 +28,7 @@ export const Button: React.FC<Props> = ({
 const css = String.raw;
 
 const ButtonWrapper = styled.button<{
-  $variant: 'primary' | 'secondary';
+  $variant: 'primary' | 'secondary' | 'default';
   $fitContent?: boolean;
 }>`
   all: unset;
@@ -50,10 +50,38 @@ const ButtonWrapper = styled.button<{
           font-size: 20px;
           font-weight: 600;
           &:hover {
-            background-color: var(--background-accent-color2);
+            background-color: var(--background-accent-color);
           }
         `;
+      } case 'secondary': {
+        return css`
+          background-color: var(--background-secondary-button-color);
+          color: var(--text-secondary-button-color);
+          text-align: center;
+          font-size: 20px;
+          font-weight: 600;
+          border-radius: 0;
+          padding: 15px 10px;
+          &:hover {
+            color: var(--background-accent-color);
+          }
+        `;
+      }case 'default':{
+        return css`
+          background-color: transparent;
+          color: var(--text-secondary-button-color);
+          text-align: center;
+          font-size: 20px;
+          font-weight: 600;
+          border-radius: 0;
+          padding: 15px 10px;
+          border-bottom: 1px solid var(--border-primary-color);
+          &:hover {
+           color: var(--background-accent-color2);
+          }
+        `
       }
+
       default:
         return '';
     }

@@ -1,4 +1,5 @@
 import { Button } from '#ui/button';
+import { Link } from 'react-router-dom';
 import { styled } from 'styled-components';
 
 export const SuccessForm: React.FC = () => {
@@ -8,12 +9,18 @@ export const SuccessForm: React.FC = () => {
         <SuccessFormText>Email confirmed</SuccessFormText>
         <SuccessFormText>Your registration has been completed</SuccessFormText>
       </SuccessFormTextWrapper>
-      <Button variant="primary" onClick={() => {}}>
-        Go to home
-      </Button>
+      <StyledLink to={'/'}>
+        <Button variant="primary" onClick={() => {}}>
+          Go to home
+        </Button>
+      </StyledLink>
     </SuccessFormWrapper>
   );
 };
+
+const StyledLink = styled(Link)`
+  text-decoration: unset;
+`;
 
 const SuccessFormWrapper = styled.div`
   width: 40%;
