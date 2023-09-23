@@ -1,10 +1,12 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars, faUser, faXmark } from '@fortawesome/free-solid-svg-icons';
-import { CSSProperties, useState } from 'react';
+import { CSSProperties } from 'react';
 import { UserNameLabel } from '../../ui/username-label/username-label';
 import { Search } from './search';
 import styled from 'styled-components';
 import { BurgerMenu } from '#features/burger-menu/burger-menu';
+import { useAppDispatch, useAppSelector } from '../../hook';
+import { toggle } from './header.slice';
 
 type BarProps = {
   username?: string;
@@ -17,12 +19,13 @@ export const Header: React.FC<BarProps> = ({
   usersList,
   isAuthorised,
 }) => {
-  const [isBurgerOpen, setIsBurgerOpen] = useState<boolean>(false);
-
+  const dispatch = useAppDispatch();
+  const { isBurgerOpen } = useAppSelector((state) => state.burgerMenu);
+  console.log(toggle());
   return (
     <>
       <HeaderWrapper>
-        <Burger onClick={(event) => setIsBurgerOpen(!isBurgerOpen)}>
+        <Burger onClick={(event) => dispatch(toggle())}>
           {isBurgerOpen ? (
             <FontAwesomeIcon icon={faXmark} />
           ) : (
@@ -38,7 +41,7 @@ export const Header: React.FC<BarProps> = ({
           </UserIcon>
         )}
       </HeaderWrapper>
-      <div style={{display: isBurgerOpen ? 'inherit' : 'none'}}>
+      <div style={{ display: isBurgerOpen ? 'inherit' : 'none' }}>
         <BurgerMenu
           isAuthorised={isAuthorised}
           username={username}

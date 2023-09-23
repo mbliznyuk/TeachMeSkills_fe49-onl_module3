@@ -1,6 +1,9 @@
-import { styled } from 'styled-components';
-import { PostCardModel } from '../post-card.model';
+import { LikeDislike } from '#features/like-dislike/like-dislike';
+import { showPreview } from '#features/post-image-preview/post-image-preview.slice';
 import { useState } from 'react';
+import { styled } from 'styled-components';
+import { useAppDispatch } from '../../../hook';
+import { PostCardModel } from '../post-card.model';
 
 type MiddlePostCardProps = {
   postCard: PostCardModel;
@@ -9,52 +12,31 @@ type MiddlePostCardProps = {
 export const MiddlePostCard: React.FC<MiddlePostCardProps> = (
   props: MiddlePostCardProps
 ) => {
-  const [isLiked, setIsLiked] = useState<boolean>(false);
-  const [isDisliked, setIsDisliked] = useState<boolean>(false);
-  const [amountOfLikes, setAmountOfLikes] = useState<number>(
-    props.postCard.likes_amount
-  );
   const [isSaved, setIsSaved] = useState<boolean>(false);
+  const dispatch = useAppDispatch();
 
-  function dislike() {
-    if (isLiked) {
-      setAmountOfLikes(amountOfLikes - 1);
-    }
-    setIsDisliked(!isDisliked);
-    setIsLiked(false);
-  }
-  function like() {
-    setIsLiked(!isLiked);
-    setIsDisliked(false);
-    setAmountOfLikes(isLiked ? amountOfLikes - 1 : amountOfLikes + 1);
-  }
   return (
     <MiddlePostCardWrapper>
       <MainWrapper>
-        <CardImageWrapper>
+        <CardImageWrapper
+          onClick={(event) => {
+            event.stopPropagation();
+            event.preventDefault();
+            dispatch(showPreview({ postId: props.postCard.id }));
+          }}
+        >
           <img src={props.postCard.image} alt="#"></img>
         </CardImageWrapper>
         <PostCardDate>{props.postCard.date}</PostCardDate>
         <PostCardTitle>{props.postCard.title}</PostCardTitle>
       </MainWrapper>
-      <IconWrapper onClick={(event) => {event.stopPropagation(); event.preventDefault()}}>
-        <LikeWrapper>
-          <LikeIcon onClick={() => like()}>
-            {isLiked ? (
-              <i className="fa-solid fa-thumbs-up"></i>
-            ) : (
-              <i className="fa-regular fa-thumbs-up"></i>
-            )}
-          </LikeIcon>
-          <AmountOfLikes>{amountOfLikes}</AmountOfLikes>
-          <DislikeIcon onClick={() => dislike()}>
-            {isDisliked ? (
-              <i className="fa-solid fa-thumbs-down"></i>
-            ) : (
-              <i className="fa-regular fa-thumbs-down"></i>
-            )}
-          </DislikeIcon>
-        </LikeWrapper>
+      <IconWrapper
+        onClick={(event) => {
+          event.stopPropagation();
+          event.preventDefault();
+        }}
+      >
+        <LikeDislike postId={props.postCard.id}></LikeDislike>
         <SaveIcoonWrapper>
           <BookmarkIcon onClick={() => setIsSaved(!isSaved)}>
             {isSaved ? (
@@ -91,7 +73,7 @@ const PostCardDate = styled.div`
 `;
 
 const PostCardTitle = styled.h2`
-  color:var(--text-primary-color);
+  color: var(--text-primary-color);
   font-size: 16px;
   margin: 10px 0;
   line-height: 20px;
@@ -117,14 +99,14 @@ const IconWrapper = styled.div`
   align-items: center;
 `;
 
-const LikeWrapper = styled.div`
-  cursor: pointer;
-  width: 25%;
-  align-items: center;
-  display: flex;
-  justify-content: space-between;
-  font-size: 18px;
-`;
+// const LikeWrapper = styled.div` TODO remove
+//   cursor: pointer;
+//   width: 25%;
+//   align-items: center;
+//   display: flex;
+//   justify-content: space-between;
+//   font-size: 18px;
+// `;
 
 const SaveIcoonWrapper = styled.div`
   cursor: pointer;
@@ -141,18 +123,18 @@ const BookmarkIcon = styled.div`
   font-size: 18px;
 `;
 
-const LikeIcon = styled.div`
-  font-size: 18px;
-  margin-right: 3px;
-  color: var(--border-accent-color);
-`;
-const DislikeIcon = styled.div`
-  font-size: 18px;
-  color: var(--border-accent-color);
-`;
+// const LikeIcon = styled.div` TODO remove
+//   font-size: 18px;
+//   margin-right: 3px;
+//   color: var(--border-accent-color);
+// `;
+// const DislikeIcon = styled.div`
+//   font-size: 18px;
+//   color: var(--border-accent-color);
+// `;
 
-const AmountOfLikes = styled.div`
-  font-size: 16px;
-  margin-right: 10px;
-  color: var(--border-accent-color);
-`;
+// const AmountOfLikes = styled.div`
+//   font-size: 16px;
+//   margin-right: 10px;
+//   color: var(--border-accent-color);
+// `;

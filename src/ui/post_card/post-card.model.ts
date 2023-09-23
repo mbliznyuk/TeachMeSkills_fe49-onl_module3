@@ -1,3 +1,5 @@
+export type UserChoice = 'like' | 'dislike' | null;
+
 export interface PostCardModel {
   id: number;
   image?: string;
@@ -5,6 +7,8 @@ export interface PostCardModel {
   date: string;
   lesson_num: number;
   likes_amount: number;
+  dislikes_amount: number;
+  user_choice: UserChoice;
   title: string;
   author: number;
 }

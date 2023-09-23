@@ -1,43 +1,45 @@
 import { useState } from 'react';
 import { styled } from 'styled-components';
+import { useAppDispatch, useAppSelector } from '../../hook';
+import { setActiveDislike, setActiveLike } from './like-dislike.slice';
 
 type Props = {
-     postId: number; 
-     likesAmount: number
- };
+  postId: number;
+};
 
+export const LikeDislike: React.FC<Props> = ({ postId }) => {
+  const dispatch = useAppDispatch();
+  const rating = useAppSelector((state) => state.likeDislike[postId]);
+  const activeLike = rating.userChoice === 'like';
+  const activeDislike = rating.userChoice === 'dislike';
 
-export const LikeDislike: React.FC<Props> = ({ likesAmount, postId }) => {
-  const [isLiked, setIsLiked] = useState<boolean>(false);
-  const [isDisliked, setIsDisliked] = useState<boolean>(false);
-  const [amountOfLikes, setAmountOfLikes] = useState<number>(likesAmount);
-  const [isSaved, setIsSaved] = useState<boolean>(false);
-
-  function dislike() {
-    if (isLiked) {
-      setAmountOfLikes(amountOfLikes - 1);
-    }
-    setIsDisliked(!isDisliked);
-    setIsLiked(false);
-  }
-  function like() {
-    setIsLiked(!isLiked);
-    setIsDisliked(false);
-    setAmountOfLikes(isLiked ? amountOfLikes - 1 : amountOfLikes + 1);
-  }
   return (
     <IconWrapper>
       <LikeWrapper>
-        <LikeIcon onClick={like}>
-          {isLiked ? (
+        <LikeIcon
+          onClick={() => {
+            if (activeLike) {
+              return;
+            }
+            dispatch(setActiveLike({ postId }));
+          }}
+        >
+          {activeLike ? (
             <i className="fa-solid fa-thumbs-up"></i>
           ) : (
             <i className="fa-regular fa-thumbs-up"></i>
           )}
         </LikeIcon>
-        <AmountOfLikes>{amountOfLikes}</AmountOfLikes>
-        <DislikeIcon onClick={dislike}>
-          {isDisliked ? (
+        <AmountOfLikes>{rating.likes}</AmountOfLikes>
+        <DislikeIcon
+          onClick={() => {
+            if (activeDislike) {
+              return;
+            }
+            dispatch(setActiveDislike({ postId }));
+          }}
+        >
+          {activeDislike ? (
             <i className="fa-solid fa-thumbs-down"></i>
           ) : (
             <i className="fa-regular fa-thumbs-down"></i>

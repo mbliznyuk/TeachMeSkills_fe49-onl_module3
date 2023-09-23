@@ -4,7 +4,7 @@ type Props = {
   variant: 'primary' | 'secondary' | 'default';
   children: string;
   disabled?: boolean;
-  onClick: () => void;
+  onClick?: () => void;
 };
 
 export const Button: React.FC<Props> = ({
@@ -18,7 +18,7 @@ export const Button: React.FC<Props> = ({
       type="button"
       $variant={variant}
       disabled={disabled}
-      onClick={() => onClick()}
+      onClick={onClick ? () => onClick() : () => ({})}
     >
       {children}
     </ButtonWrapper>
@@ -53,7 +53,8 @@ const ButtonWrapper = styled.button<{
             background-color: var(--background-accent-color);
           }
         `;
-      } case 'secondary': {
+      }
+      case 'secondary': {
         return css`
           background-color: var(--background-secondary-button-color);
           color: var(--text-secondary-button-color);
@@ -66,7 +67,8 @@ const ButtonWrapper = styled.button<{
             color: var(--background-accent-color);
           }
         `;
-      }case 'default':{
+      }
+      case 'default': {
         return css`
           background-color: transparent;
           color: var(--text-secondary-button-color);
@@ -77,9 +79,9 @@ const ButtonWrapper = styled.button<{
           padding: 15px 10px;
           border-bottom: 1px solid var(--border-primary-color);
           &:hover {
-           color: var(--background-accent-color2);
+            color: var(--background-accent-color2);
           }
-        `
+        `;
       }
 
       default:
