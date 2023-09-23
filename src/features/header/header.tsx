@@ -1,24 +1,18 @@
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faBars, faUser, faXmark } from '@fortawesome/free-solid-svg-icons';
-import { CSSProperties } from 'react';
-import { UserNameLabel } from '../../ui/username-label/username-label';
-import { Search } from './search';
-import styled from 'styled-components';
 import { BurgerMenu } from '#features/burger-menu/burger-menu';
+import { faBars, faUser, faXmark } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import styled from 'styled-components';
 import { useAppDispatch, useAppSelector } from '../../hook';
+import { UserNameLabel } from '../../ui/username-label/username-label';
 import { toggle } from './header.slice';
+import { Search } from './search';
 
 type BarProps = {
   username?: string;
-  usersList: string[];
   isAuthorised: boolean;
 };
 
-export const Header: React.FC<BarProps> = ({
-  username,
-  usersList,
-  isAuthorised,
-}) => {
+export const Header: React.FC<BarProps> = ({ username, isAuthorised }) => {
   const dispatch = useAppDispatch();
   const { isBurgerOpen } = useAppSelector((state) => state.burgerMenu);
   console.log(toggle());
@@ -78,11 +72,3 @@ const UserIcon = styled.div`
   align-items: center;
   justify-content: center;
 `;
-
-// TODO: remove
-const bottomUsernameLabelStyle: CSSProperties = {
-  borderTop: '1px solid #5463CA',
-  zIndex: '10',
-  width: '150px',
-  height: '30px',
-};

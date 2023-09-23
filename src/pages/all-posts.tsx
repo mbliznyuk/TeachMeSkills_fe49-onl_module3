@@ -7,7 +7,6 @@ import {
   mockedCurrentUsername,
   mockedPostCardModels,
   mockedTabsModels,
-  mockedUsernames,
 } from '../mocked-data';
 import { useEffect } from 'react';
 import {
@@ -46,11 +45,7 @@ export const AllPostsPage: React.FC = () => {
 
       <MainTemplate
         header={
-          <Header
-            usersList={mockedUsernames}
-            username={mockedCurrentUsername}
-            isAuthorised={true}
-          ></Header>
+          <Header username={mockedCurrentUsername} isAuthorised={true}></Header>
         }
         backLink={<BackLink />}
         title={<Title>Blog</Title>}

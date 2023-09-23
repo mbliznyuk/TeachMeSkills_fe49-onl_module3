@@ -7,7 +7,6 @@ export const mockedTabsModels: TabModel[] = [
   { id: 'popular', name: 'Popular' },
 ];
 
-export const mockedUsernames: string[] = ['Maria Bliznyuk']; //TODO remove
 export const mockedCurrentUsername: string = 'Maria Bliznyuk';
 
 export const mockedPostCardModels: PostCardModel[] = [

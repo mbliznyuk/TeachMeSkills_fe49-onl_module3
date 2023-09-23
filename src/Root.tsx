@@ -5,6 +5,8 @@ import { AllPostsPage } from './pages/all-posts';
 import { SelectedPostPage } from './pages/selected-post';
 import { SignIn } from './pages/sign-in';
 import { SignUp } from './pages/sign-up';
+import { SearchResultsPage } from './pages/search-results';
+import { mockedPostCardModels } from './mocked-data';
 
 function Root() {
   return (
@@ -17,6 +19,10 @@ function Root() {
           <Route path="/add-post" element={<AddPostPage />} />
           <Route path="/posts" element={<AllPostsPage />}></Route>
           <Route path="/posts/:postId" element={<SelectedPostPage />}></Route>
+          <Route
+            path="/search-resault"
+            element={<SearchResultsPage postCards={mockedPostCardModels} />}
+          ></Route>
         </Route>
       </Routes>
     </div>

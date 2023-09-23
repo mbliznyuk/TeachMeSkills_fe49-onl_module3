@@ -1,12 +1,12 @@
-import { useState } from 'react';
 import { styled } from 'styled-components';
+import { useAppDispatch, useAppSelector } from '../../hook';
+import { setActiveTab } from './tab.slice';
 
 type TabsProps = {
   tabs: TabModel[];
   selectedTab: string;
   setSelectedTab: (id: string) => void;
-  defaultSelectedTabId?:string;
-
+  defaultSelectedTabId?: string;
 };
 
 export interface TabModel {
@@ -16,17 +16,16 @@ export interface TabModel {
 }
 
 export const Tabs: React.FC<TabsProps> = (props: TabsProps) => {
-  const [selectedTabId, setSelectedTabId] = useState<string>(
-    props.defaultSelectedTabId || 'all'
-  );
+  const dispatch = useAppDispatch();
+  const activeId = useAppSelector((state) => state.tabs.activeTab);
   return (
     <TabsWrapper>
       {props.tabs.map((element, id) => (
         <Tab
           key={id}
-          onClick={() => setSelectedTabId(element.id)}
-          $isSelected={element.id === selectedTabId}
+          $isSelected={activeId === element.id}
           disabled={element.isDisabled}
+          onClick={() => dispatch(setActiveTab(element.id))}
         >
           {element.name}
         </Tab>
@@ -43,7 +42,7 @@ const TabsWrapper = styled.div`
   margin-bottom: 20px;
 `;
 
-const Tab = styled.button<{$isSelected: boolean}>`
+const Tab = styled.button<{ $isSelected: boolean }>`
   all: unset;
   color: var(--text-primary-color);
   font-size: 18px;
@@ -51,13 +50,14 @@ const Tab = styled.button<{$isSelected: boolean}>`
   margin: 0 20px;
   padding: 10px 10px;
   border-bottom: 3px solid;
-  border-color: ${({$isSelected}) =>($isSelected ? 'var(--border-accent-color)' : 'transparent')};
+  border-color: ${({ $isSelected }) =>
+    $isSelected ? 'var(--border-accent-color)' : 'transparent'};
   cursor: pointer;
   &:hover {
     color: var(--text-hover-color);
   }
 
-  &:disabled{
+  &:disabled {
     color: gray;
     cursor: auto;
   }

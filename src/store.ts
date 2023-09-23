@@ -7,6 +7,7 @@ import { showPreviewReducer } from '#features/post-image-preview/post-image-prev
 import createSagaMiddleware from 'redux-saga';
 import { rootSaga } from './sagas';
 import { registrationReducer } from '#features/auth/registration.slice';
+import { TabsSliceReducer } from '#ui/tabs/tab.slice';
 
 let sagaMiddleware = createSagaMiddleware();
 const middleware = [sagaMiddleware];
@@ -18,6 +19,7 @@ export const store = configureStore({
     burgerMenu: burgerOpenreducer,
     postImagePreview: showPreviewReducer,
     registration: registrationReducer,
+    tabs: TabsSliceReducer,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware().concat(middleware),

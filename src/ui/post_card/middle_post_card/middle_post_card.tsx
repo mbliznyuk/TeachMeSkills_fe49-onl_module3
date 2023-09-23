@@ -99,15 +99,6 @@ const IconWrapper = styled.div`
   align-items: center;
 `;
 
-// const LikeWrapper = styled.div` TODO remove
-//   cursor: pointer;
-//   width: 25%;
-//   align-items: center;
-//   display: flex;
-//   justify-content: space-between;
-//   font-size: 18px;
-// `;
-
 const SaveIcoonWrapper = styled.div`
   cursor: pointer;
   width: 20%;
@@ -122,19 +113,3 @@ const BookmarkIcon = styled.div`
   justify-content: space-between;
   font-size: 18px;
 `;
-
-// const LikeIcon = styled.div` TODO remove
-//   font-size: 18px;
-//   margin-right: 3px;
-//   color: var(--border-accent-color);
-// `;
-// const DislikeIcon = styled.div`
-//   font-size: 18px;
-//   color: var(--border-accent-color);
-// `;
-
-// const AmountOfLikes = styled.div`
-//   font-size: 16px;
-//   margin-right: 10px;
-//   color: var(--border-accent-color);
-// `;

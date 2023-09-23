@@ -7,12 +7,7 @@ import { Title } from '#ui/title/title';
 export const SignIn: React.FC = () => {
   return (
     <MainTemplate
-      header={
-        <Header
-          usersList={['Artem Malkin', 'Maria Bliznyuk']}
-          isAuthorised={false}
-        ></Header>
-      }
+      header={<Header isAuthorised={false}></Header>}
       backLink={<BackLink />}
       title={<Title>Sign In</Title>}
       body={<SignInForm />}

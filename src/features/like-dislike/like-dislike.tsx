@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import { styled } from 'styled-components';
 import { useAppDispatch, useAppSelector } from '../../hook';
 import { setActiveDislike, setActiveLike } from './like-dislike.slice';

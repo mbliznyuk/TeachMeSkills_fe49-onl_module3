@@ -1,12 +1,12 @@
-import { ThemeSwitcher } from '#features/theme-switcher/theme-switcher';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
 export const BackLink: React.FC = () => (
   <BackLinkWrapper>
-    <Link to={'/'}><BackLinkText>Back to home</BackLinkText></Link>
-    {/* <ThemeSwitcher></ThemeSwitcher> */}
-    </BackLinkWrapper>
+    <Link to={'/'}>
+      <BackLinkText>Back to home</BackLinkText>
+    </Link>
+  </BackLinkWrapper>
 );
 
 const BackLinkWrapper = styled.div`
@@ -15,6 +15,6 @@ const BackLinkWrapper = styled.div`
 `;
 
 const BackLinkText = styled.div`
-color: var(--text-primary-color);
+  color: var(--text-primary-color);
   margin: 40px 20px 0 20px;
 `;

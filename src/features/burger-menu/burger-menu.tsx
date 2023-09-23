@@ -1,9 +1,8 @@
 import { Button } from '#ui/button';
 import { UserNameLabel } from '#ui/username-label/username-label';
 import { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import styled from 'styled-components';
 import { Link } from 'react-router-dom';
+import styled from 'styled-components';
 
 type BurgerMenuProps = {
   username?: string;
@@ -80,9 +79,13 @@ const BurgerMenuWrapper = styled.div`
   border-top: 1px solid #5463ca;
 `;
 
-const BurgerMenuTopWrapper = styled.div``;
+const BurgerMenuTopWrapper = styled.div`
+  width: 100%;
+`;
 
-const BurgerMenuBottomWrapper = styled.div``;
+const BurgerMenuBottomWrapper = styled.div`
+  width: 100%;
+`;
 
 const ThemeSwitcherWrapper = styled.div`
   display: flex;
