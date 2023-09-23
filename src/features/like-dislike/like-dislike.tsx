@@ -18,9 +18,6 @@ export const LikeDislike: React.FC<Props> = ({ postId }) => {
       <LikeWrapper>
         <LikeIcon
           onClick={() => {
-            if (activeLike) {
-              return;
-            }
             dispatch(setActiveLike({ postId }));
           }}
         >
@@ -33,9 +30,6 @@ export const LikeDislike: React.FC<Props> = ({ postId }) => {
         <AmountOfLikes>{rating.likes}</AmountOfLikes>
         <DislikeIcon
           onClick={() => {
-            if (activeDislike) {
-              return;
-            }
             dispatch(setActiveDislike({ postId }));
           }}
         >
