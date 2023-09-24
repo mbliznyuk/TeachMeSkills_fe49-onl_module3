@@ -13,10 +13,21 @@ export const ListOfPosts: React.FC<ListOfPostsProps> = (
 ) => {
   const getPostCardbyId = (id: number) =>
     props.postCards.find((item) => item.id === id);
+
+  const getHalfOfCards = (part: 'left' | 'right'): number[] => {
+    const identifiers = props.postCards.map((element) => element.id);
+    const halfIndex = Math.ceil(props.postCards.length / 2);
+    if (part === 'left') {
+      return identifiers.slice(0, halfIndex);
+    } else {
+      return identifiers.slice(halfIndex);
+    }
+  };
+
   return (
     <ListOfPostsWrapper>
       <LeftWrapperOfPosts>
-        {[1, 2, 9, 3, 4, 5].map((element, id) => (
+        {getHalfOfCards('left').map((element, id) => (
           <StyledLink key={id} to={`/posts/${element}`}>
             <MiddlePostCard
               key={id}
@@ -26,7 +37,7 @@ export const ListOfPosts: React.FC<ListOfPostsProps> = (
         ))}
       </LeftWrapperOfPosts>
       <RightWrapperOfPosts>
-        {[11, 6, 7, 8, 9, 10].map((element, id) => (
+        {getHalfOfCards('right').map((element, id) => (
           <StyledLink key={id} to={`/posts/${element}`}>
             <SmallPostCard
               key={id}

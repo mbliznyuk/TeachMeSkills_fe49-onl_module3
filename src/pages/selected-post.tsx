@@ -1,7 +1,6 @@
 import { BackLink } from '#features/back-link/back-link';
 import { Header } from '#features/header/header';
 import { SelectedPost } from '#features/selected-post/selected-post-body';
-import { PostCardModel } from '#ui/post_card/post-card.model';
 import { MainTemplate } from '#ui/templates/main-template';
 import { Title } from '#ui/title/title';
 import { Navigate, useParams } from 'react-router-dom';

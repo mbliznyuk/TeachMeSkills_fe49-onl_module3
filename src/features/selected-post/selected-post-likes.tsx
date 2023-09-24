@@ -1,32 +1,43 @@
+import {
+  setActiveDislike,
+  setActiveLike,
+} from '#features/like-dislike/like-dislike.slice';
 import { useState } from 'react';
 import { styled } from 'styled-components';
+import { useAppDispatch, useAppSelector } from '../../hook';
 
-export const SelectedPostLikes: React.FC = () => {
-  const [isLiked, setIsLiked] = useState<boolean>(false);
-  const [isDisliked, setIsDisliked] = useState<boolean>(false);
+type Props = {
+  postId: number;
+};
+
+export const SelectedPostLikes: React.FC<Props> = ({ postId }) => {
   const [isSaved, setIsSaved] = useState<boolean>(false);
 
-  function dislike() {
-    setIsDisliked(!isDisliked);
-    setIsLiked(false);
-  }
-  function like() {
-    setIsLiked(!isLiked);
-    setIsDisliked(false);
-  }
+  const dispatch = useAppDispatch();
+  const rating = useAppSelector((state) => state.likeDislike[postId]);
+  const activeLike = rating.userChoice === 'like';
+  const activeDislike = rating.userChoice === 'dislike';
+
   return (
     <IconWrapper>
       <LikeWrapper>
-        <LikeIcon onClick={like}>
-          {isLiked ? (
+        <LikeIcon
+          onClick={() => {
+            dispatch(setActiveLike({ postId }));
+          }}
+        >
+          {activeLike ? (
             <i className="fa-solid fa-thumbs-up"></i>
           ) : (
             <i className="fa-regular fa-thumbs-up"></i>
           )}
         </LikeIcon>
-        {/* <AmountOfLikes>{amountOfLikes}</AmountOfLikes> */}
-        <DislikeIcon onClick={dislike}>
-          {isDisliked ? (
+        <DislikeIcon
+          onClick={() => {
+            dispatch(setActiveDislike({ postId }));
+          }}
+        >
+          {activeDislike ? (
             <i className="fa-solid fa-thumbs-down"></i>
           ) : (
             <i className="fa-regular fa-thumbs-down"></i>

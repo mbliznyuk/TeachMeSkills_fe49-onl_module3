@@ -1,4 +1,4 @@
-import { SelectedPostLikes } from '#features/post-likes-panel/selected-post-likes/selected-post-likes';
+import { SelectedPostLikes } from '#features/selected-post/selected-post-likes';
 import { PostNavigationFooter } from '#features/selected-post/selected-post-navigation-footer';
 import { PostCardModel } from '#ui/post_card/post-card.model';
 import { styled } from 'styled-components';
@@ -27,7 +27,7 @@ export const SelectedPost: React.FC<SelectedPostProps> = ({
             ))}
           </PostTextWrapper>
         </MainWrapper>
-        <SelectedPostLikes></SelectedPostLikes>
+        <SelectedPostLikes postId={postCard.id}></SelectedPostLikes>
       </PostWrapper>
       <PostNavigationFooter
         previousPostTitle={previousPostTitle}

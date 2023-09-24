@@ -5,6 +5,8 @@ const allPostsSlice = createSlice({
   name: 'AllPosts',
   initialState: {
     posts: [] as PostCardModel[],
+    favouritePosts: [] as PostCardModel[],
+    popularPosts: [] as PostCardModel[],
     isLoading: false,
     error: null as Error | null,
   },
@@ -15,6 +17,12 @@ const allPostsSlice = createSlice({
     getAllPostsSuccess(state, action: { payload: { posts: PostCardModel[] } }) {
       state.isLoading = false;
       state.posts = action.payload.posts;
+      state.favouritePosts = action.payload.posts.filter(
+        (element) => element.isFavorite
+      );
+      state.popularPosts = action.payload.posts.filter(
+        (element) => element.likes_amount > 30
+      );
     },
     getAllPostsFailure(state, error: { payload: unknown }) {
       state.isLoading = false;
