@@ -1,8 +1,8 @@
+import { toggleFavourite } from '#features/all-posts/all-posts.slice';
 import {
   setActiveDislike,
   setActiveLike,
 } from '#features/like-dislike/like-dislike.slice';
-import { useState } from 'react';
 import { styled } from 'styled-components';
 import { useAppDispatch, useAppSelector } from '../../hook';
 
@@ -11,13 +11,14 @@ type Props = {
 };
 
 export const SelectedPostLikes: React.FC<Props> = ({ postId }) => {
-  const [isSaved, setIsSaved] = useState<boolean>(false);
-
   const dispatch = useAppDispatch();
   const rating = useAppSelector((state) => state.likeDislike[postId]);
   const activeLike = rating.userChoice === 'like';
   const activeDislike = rating.userChoice === 'dislike';
+  const { posts } = useAppSelector((state) => state.allPosts);
 
+  const isPostFavorite: boolean =
+    posts.find((element) => element.id === postId)?.isFavorite || false;
   return (
     <IconWrapper>
       <LikeWrapper>
@@ -45,8 +46,10 @@ export const SelectedPostLikes: React.FC<Props> = ({ postId }) => {
         </DislikeIcon>
       </LikeWrapper>
       <SaveIcoonWrapper>
-        <BookmarkIcon onClick={() => setIsSaved(!isSaved)}>
-          {isSaved ? (
+        <BookmarkIcon
+          onClick={(event) => dispatch(toggleFavourite({ postId }))}
+        >
+          {isPostFavorite ? (
             <i className="fa-solid fa-bookmark"></i>
           ) : (
             <i className="fa-regular fa-bookmark"></i>

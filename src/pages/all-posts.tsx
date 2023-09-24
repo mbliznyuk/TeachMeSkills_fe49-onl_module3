@@ -26,7 +26,7 @@ export const AllPostsPage: React.FC = () => {
   const dispatch = useAppDispatch();
   const { isPreviewShown } = useAppSelector((state) => state.postImagePreview);
   const { activeTab } = useAppSelector((state) => state.tabs);
-  const { posts, favouritePosts, isLoading, popularPosts } = useAppSelector(
+  const { posts, favoritePosts, isLoading, popularPosts } = useAppSelector(
     ({ allPosts }) => allPosts
   );
 
@@ -35,7 +35,7 @@ export const AllPostsPage: React.FC = () => {
       case ALL_TABS_KEY:
         return posts;
       case FAVOURITES_TABS_KEY:
-        return favouritePosts;
+        return favoritePosts;
       case POPULAR_TABS_KEY:
         return popularPosts;
       default:
@@ -48,11 +48,8 @@ export const AllPostsPage: React.FC = () => {
   }, [dispatch]);
 
   useEffect(() => {
-    setTimeout(
-      () => dispatch(getAllPostsSuccess({ posts: mockedPostCardModels })),
-      2000
-    );
-  });
+    dispatch(getAllPostsSuccess({ posts: mockedPostCardModels }));
+  }, [dispatch]);
 
   if (isLoading) {
     return <div>Loading...</div>;

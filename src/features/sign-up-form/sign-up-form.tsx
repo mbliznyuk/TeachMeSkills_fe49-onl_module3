@@ -25,7 +25,32 @@ export const SignUpForm: React.FC = () => {
   const [email, setEmail] = useState<string>('');
   const [password, setPassword] = useState<string>('');
   const [confirmedPassword, setConfirmedPassword] = useState<string>('');
-  const [isFormSubmited, setIsFormSubmited] = useState<boolean>(false);
+  const [isFormSubmitted, setIsFormSubmitted] = useState<boolean>(false);
+
+  const getPasswordErrorMessage = (
+    currentPassword: string,
+    anotherPassword: string
+  ): string | undefined => {
+    if (!isFormSubmitted) {
+      return undefined;
+    }
+    if (!currentPassword) {
+      return "Password shoudn't be empty";
+    }
+    if (currentPassword !== anotherPassword) {
+      return "Passwords aren't equal";
+    }
+    return undefined;
+  };
+
+  const isFormValid = (): boolean => {
+    return (
+      !!email &&
+      !!password &&
+      !!confirmedPassword &&
+      password === confirmedPassword
+    );
+  };
 
   return (
     <FormWrapper>
@@ -40,13 +65,16 @@ export const SignUpForm: React.FC = () => {
         labelText="Email"
         value={email}
         onChange={({ currentTarget }) => setEmail(currentTarget.value)}
-        error={!email && isFormSubmited ? `Email shoudn't be empty` : undefined}
+        error={
+          !email && isFormSubmitted ? `Email shoudn't be empty` : undefined
+        }
       />
       <Input
         type="password"
         labelText="Password"
         value={password}
         onChange={({ currentTarget }) => setPassword(currentTarget.value)}
+        error={getPasswordErrorMessage(password, confirmedPassword)}
       />
       <Input
         type="password"
@@ -55,17 +83,23 @@ export const SignUpForm: React.FC = () => {
         onChange={({ currentTarget }) =>
           setConfirmedPassword(currentTarget.value)
         }
+        error={getPasswordErrorMessage(confirmedPassword, password)}
       />
+      <EmptySpace></EmptySpace>
       <Button
         variant="primary"
-        onClick={() =>
-          dispatch(
-            register({
-              username: name,
-              password,
-            })
-          )
-        }
+        disabled={!isFormValid()}
+        onClick={() => {
+          setIsFormSubmitted(true);
+          if (isFormValid()) {
+            dispatch(
+              register({
+                username: name,
+                password,
+              })
+            );
+          }
+        }}
       >
         Sign Up
       </Button>
@@ -79,4 +113,8 @@ const FormWrapper = styled.form`
   margin-top: 30px;
   padding: 35px;
   border: 1px solid var(--border-primary-color);
+`;
+
+const EmptySpace = styled.div`
+  height: 15px;
 `;

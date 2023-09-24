@@ -4,6 +4,7 @@ import { useState } from 'react';
 import { styled } from 'styled-components';
 import { useAppDispatch } from '../../../hook';
 import { PostCardModel } from '../post-card.model';
+import { FavoritePostIcon } from '#features/favorite-icon/favorite-icon';
 
 type MiddlePostCardProps = {
   postCard: PostCardModel;
@@ -38,13 +39,7 @@ export const MiddlePostCard: React.FC<MiddlePostCardProps> = (
       >
         <LikeDislike postId={props.postCard.id}></LikeDislike>
         <SaveIcoonWrapper>
-          <BookmarkIcon onClick={() => setIsSaved(!isSaved)}>
-            {isSaved ? (
-              <i className="fa-solid fa-bookmark"></i>
-            ) : (
-              <i className="fa-regular fa-bookmark"></i>
-            )}
-          </BookmarkIcon>
+          <FavoritePostIcon postId={props.postCard.id}></FavoritePostIcon>
           <i className="fa-solid fa-ellipsis"></i>
         </SaveIcoonWrapper>
       </IconWrapper>

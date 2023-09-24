@@ -15,7 +15,6 @@ type BarProps = {
 export const Header: React.FC<BarProps> = ({ username, isAuthorised }) => {
   const dispatch = useAppDispatch();
   const { isBurgerOpen } = useAppSelector((state) => state.burgerMenu);
-  console.log(toggle());
   return (
     <>
       <HeaderWrapper>

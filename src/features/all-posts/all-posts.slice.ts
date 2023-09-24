@@ -5,7 +5,7 @@ const allPostsSlice = createSlice({
   name: 'AllPosts',
   initialState: {
     posts: [] as PostCardModel[],
-    favouritePosts: [] as PostCardModel[],
+    favoritePosts: [] as PostCardModel[],
     popularPosts: [] as PostCardModel[],
     isLoading: false,
     error: null as Error | null,
@@ -17,7 +17,7 @@ const allPostsSlice = createSlice({
     getAllPostsSuccess(state, action: { payload: { posts: PostCardModel[] } }) {
       state.isLoading = false;
       state.posts = action.payload.posts;
-      state.favouritePosts = action.payload.posts.filter(
+      state.favoritePosts = action.payload.posts.filter(
         (element) => element.isFavorite
       );
       state.popularPosts = action.payload.posts.filter(
@@ -36,10 +36,32 @@ const allPostsSlice = createSlice({
       }
       state.error = { name: 'Error', message: String(error) };
     },
+    toggleFavourite(state, action: { payload: { postId: number } }) {
+      const postToToggle = state.posts.find(
+        (element) => element.id === action.payload.postId
+      );
+      if (!postToToggle) {
+        return;
+      }
+      if (postToToggle.isFavorite) {
+        const indexOfElementToRemove = state.favoritePosts.findIndex(
+          (element) => element.id === action.payload.postId
+        );
+        state.favoritePosts.splice(indexOfElementToRemove, 1);
+      } else {
+        state.favoritePosts.push(postToToggle);
+      }
+      postToToggle.isFavorite = !postToToggle.isFavorite;
+    },
   },
 });
 
 export const {
-  actions: { getAllPosts, getAllPostsSuccess, getAllPostsFailure },
+  actions: {
+    getAllPosts,
+    getAllPostsSuccess,
+    getAllPostsFailure,
+    toggleFavourite,
+  },
   reducer: allPostsReducer,
 } = allPostsSlice;
