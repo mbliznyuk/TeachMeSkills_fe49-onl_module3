@@ -43,13 +43,14 @@ export const AllPostsPage: React.FC = () => {
     }
   };
 
+  console.log('getAllPosts in page'); // TODO remove
   useEffect(() => {
     dispatch(getAllPosts());
   }, [dispatch]);
 
-  useEffect(() => {
-    dispatch(getAllPostsSuccess({ posts: mockedPostCardModels }));
-  }, [dispatch]);
+  // useEffect(() => {
+  //   dispatch(getAllPostsSuccess({ posts: mockedPostCardModels }));
+  // }, [dispatch]);
 
   if (isLoading) {
     return <div>Loading...</div>;
