@@ -8,7 +8,6 @@ import { api } from './api';
 
 export function* getAllPostsSaga() {
   yield takeLatest(getAllPosts, function* getAllPostsHandler() {
-    console.log('getAllPosts in saga'); // TODO remove
     const { isOk, posts } = yield* call(api.getAllPosts);
 
     if (isOk) {
