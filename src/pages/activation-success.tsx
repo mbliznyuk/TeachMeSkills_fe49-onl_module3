@@ -4,10 +4,10 @@ import { SuccessForm } from '#features/success-form/success-form';
 import { MainTemplate } from '#ui/templates/main-template';
 import { Title } from '#ui/title/title';
 
-export const Success: React.FC = () => {
+export const ActivationSuccess: React.FC = () => {
   return (
     <MainTemplate
-      header={<Header isAuthorised={true}></Header>}
+      header={<Header isAuthorised={false}></Header>}
       backLink={<BackLink />}
       title={<Title>Success</Title>}
       body={<SuccessForm />}

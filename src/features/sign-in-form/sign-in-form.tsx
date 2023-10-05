@@ -71,8 +71,7 @@ const SignUpFormText = styled.span`
   color: var(--text-primary-color);
 `;
 
-const SignUpFormLink = styled.a`
-  all: unset;
+const SignUpFormLink = styled.span`
   color: blue;
   cursor: pointer;
 `;

@@ -12,7 +12,6 @@ const allPostsSlice = createSlice({
   },
   reducers: {
     getAllPosts(state) {
-      console.log('getAllPosts in slice'); // TODO remove
       state.isLoading = true;
     },
     getAllPostsSuccess(state, action: { payload: { posts: PostCardModel[] } }) {

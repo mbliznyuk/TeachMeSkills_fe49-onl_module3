@@ -10,17 +10,17 @@ import { useNavigate } from 'react-router-dom';
 export const SignUpForm: React.FC = () => {
   const dispatch = useAppDispatch();
   const name = useAppSelector(({ signUpForm }) => signUpForm.name);
-  const isCompleted = useAppSelector(
-    ({ registration }) => registration.isCompleted
+  const { isCompleted, registrationResponse } = useAppSelector(
+    ({ registration }) => registration
   );
 
   const navigate = useNavigate();
 
   useEffect(() => {
     if (isCompleted) {
-      navigate('/add-post');
+      navigate('/sign-up/success/' + registrationResponse?.email);
     }
-  }, [isCompleted, navigate]);
+  }, [isCompleted, registrationResponse, navigate]);
 
   const [email, setEmail] = useState<string>('');
   const [password, setPassword] = useState<string>('');
@@ -96,6 +96,8 @@ export const SignUpForm: React.FC = () => {
               register({
                 username: name,
                 password,
+                email,
+                // course_group: 22,
               })
             );
           }
