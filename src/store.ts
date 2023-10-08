@@ -9,6 +9,7 @@ import { configureStore } from '@reduxjs/toolkit';
 import createSagaMiddleware from 'redux-saga';
 import { rootSaga } from './sagas';
 import { activationReducer } from '#features/auth/activation.slice';
+import { authorisationReducer } from '#features/auth/authorisation.slice';
 
 let sagaMiddleware = createSagaMiddleware();
 const middleware = [sagaMiddleware];
@@ -22,6 +23,7 @@ export const store = configureStore({
     registration: registrationReducer,
     tabs: TabsSliceReducer,
     activation: activationReducer,
+    authorisation: authorisationReducer,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware().concat(middleware),

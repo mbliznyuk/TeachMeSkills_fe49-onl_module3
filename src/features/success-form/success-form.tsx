@@ -9,7 +9,7 @@ export const SuccessForm: React.FC = () => {
         <SuccessFormText>Email confirmed</SuccessFormText>
         <SuccessFormText>Your registration has been completed</SuccessFormText>
       </SuccessFormTextWrapper>
-      <StyledLink to={'/'}>
+      <StyledLink to={'/sign-in'}>
         <Button variant="primary" onClick={() => {}}>
           Go to home
         </Button>
@@ -17,7 +17,7 @@ export const SuccessForm: React.FC = () => {
     </SuccessFormWrapper>
   );
 };
-
+//ROLE Button!!!!!!!!!
 const StyledLink = styled(Link)`
   text-decoration: unset;
 `;

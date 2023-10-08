@@ -5,7 +5,6 @@ import { activate } from '#features/auth/activation.slice';
 
 export const ActivatePage: React.FC = () => {
   const { uid, token } = useParams();
-  console.log(uid, token);
   const dispatch = useAppDispatch();
   const isCompleted = useAppSelector(
     ({ activation }) => activation.isCompleted

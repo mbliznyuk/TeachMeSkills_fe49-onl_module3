@@ -20,3 +20,13 @@ export type ActivationResponse = {
   uid: string;
   token: string;
 };
+
+export type AuthorisationPayload = {
+  email: string;
+  password: string;
+};
+
+export type AuthorisationResponse = {
+  access: string;
+  refresh: string;
+};

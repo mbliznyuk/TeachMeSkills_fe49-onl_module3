@@ -1,5 +1,5 @@
+import { PostCardModel } from '#ui/post_card/post-card.model';
 import { createSlice } from '@reduxjs/toolkit';
-import { mockedPostCardModels } from '../../mocked-data';
 
 type PostImageInfo = {
   postId: number;
@@ -10,18 +10,22 @@ type Payload = {
   postId: number;
 };
 
-const initialValues: PostImageInfo[] = mockedPostCardModels.map((element) => {
-  return { postId: element.id, imageUrl: element.image };
-});
-
+const mapToPreviews = (posts: PostCardModel[]): PostImageInfo[] => {
+  return posts.map((element) => {
+    return { postId: element.id, imageUrl: element.image };
+  });
+};
 const showPreviewSlice = createSlice({
   name: 'showPreview',
   initialState: {
+    postsPayloads: [] as PostImageInfo[],
     isPreviewShown: false,
-    postsPayloads: initialValues,
-    shownPostImage: initialValues[0].imageUrl,
+    shownPostImage: '' as string | undefined,
   },
   reducers: {
+    setPreview(state, action: { payload: PostCardModel[] }) {
+      state.postsPayloads = mapToPreviews(action.payload);
+    },
     showPreview(state, action: { payload: Payload }) {
       state.isPreviewShown = true;
       state.shownPostImage = state.postsPayloads.find(
@@ -35,6 +39,6 @@ const showPreviewSlice = createSlice({
 });
 
 export const {
-  actions: { showPreview, clearPreview },
+  actions: { setPreview, showPreview, clearPreview },
   reducer: showPreviewReducer,
 } = showPreviewSlice;

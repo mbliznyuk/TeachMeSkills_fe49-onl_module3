@@ -1,18 +1,18 @@
-import { PostCardModel } from '#ui/post_card/post-card.model';
-import { mockedPostCardModels } from '../../mocked-data';
+import { baseUrl, jsonContentTypeHeaders } from '../../api/constants';
+import { AllPostsResponse } from './types';
 
-export const api = {
-  getAllPosts: () => {
-    return new Promise<PostsResponse>((resolve) =>
-      setTimeout(
-        () => resolve({ isOk: true, posts: mockedPostCardModels }),
-        3000
-      )
-    );
+export const allPostsapi = {
+  getAllPosts: (): Promise<AllPostsResponse> => {
+    return fetch(baseUrl + 'blog/posts/?lesson_num=2023&limit=20&offset=20', {
+      method: 'GET',
+      headers: {
+        ...jsonContentTypeHeaders,
+      },
+    }).then((response) => {
+      if (!response.ok) {
+        throw new Error('SERVER ERROR');
+      }
+      return response.json();
+    });
   },
 };
-
-interface PostsResponse {
-  isOk: boolean;
-  posts: PostCardModel[];
-}

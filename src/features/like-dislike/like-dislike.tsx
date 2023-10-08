@@ -1,6 +1,12 @@
 import { styled } from 'styled-components';
 import { useAppDispatch, useAppSelector } from '../../hook';
-import { setActiveDislike, setActiveLike } from './like-dislike.slice';
+import {
+  Rating,
+  setActiveDislike,
+  setActiveLike,
+  setRatings,
+} from './like-dislike.slice';
+import { useEffect } from 'react';
 
 type Props = {
   postId: number;
@@ -8,9 +14,9 @@ type Props = {
 
 export const LikeDislike: React.FC<Props> = ({ postId }) => {
   const dispatch = useAppDispatch();
-  const rating = useAppSelector((state) => state.likeDislike[postId]);
-  const activeLike = rating.userChoice === 'like';
-  const activeDislike = rating.userChoice === 'dislike';
+  const rating = useAppSelector((state) => state.likeDislike.records[postId]);
+  const activeLike = rating?.userChoice === 'like' || false;
+  const activeDislike = rating?.userChoice === 'dislike' || false;
 
   return (
     <IconWrapper>
@@ -26,7 +32,7 @@ export const LikeDislike: React.FC<Props> = ({ postId }) => {
             <i className="fa-regular fa-thumbs-up"></i>
           )}
         </LikeIcon>
-        <AmountOfLikes>{rating.likes}</AmountOfLikes>
+        <AmountOfLikes>{rating?.likes || 0}</AmountOfLikes>
         <DislikeIcon
           onClick={() => {
             dispatch(setActiveDislike({ postId }));
