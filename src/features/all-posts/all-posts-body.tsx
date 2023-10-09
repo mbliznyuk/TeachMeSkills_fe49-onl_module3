@@ -2,7 +2,6 @@ import { ListOfPosts } from '#features/list-of-posts/list-of-posts';
 import { AllPostsNavigationFooter } from '#features/post-navigation-footer/all-posts-navigation-footer';
 import { PostCardModel } from '#ui/post_card/post-card.model';
 import { TabModel, Tabs } from '#ui/tabs/tab';
-import { useState } from 'react';
 import { styled } from 'styled-components';
 
 type AllPostsProps = {
@@ -11,15 +10,10 @@ type AllPostsProps = {
 };
 
 export const AllPosts: React.FC<AllPostsProps> = ({ postCards, tabs }) => {
-  const [selectedTabId, setSelectedTabId] = useState<string>('all');
   return (
     <>
       <TabsWrapper>
-        <Tabs
-          tabs={tabs}
-          selectedTab={selectedTabId}
-          setSelectedTab={setSelectedTabId}
-        ></Tabs>
+        <Tabs tabs={tabs}></Tabs>
       </TabsWrapper>
       <AllPostsWrapper>
         <ListOfPosts postCards={postCards}></ListOfPosts>

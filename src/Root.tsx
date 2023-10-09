@@ -20,7 +20,7 @@ function Root() {
           <Route path="/posts" element={<AllPostsPage />}></Route>
           <Route path="/posts/:postId" element={<SelectedPostPage />}></Route>
           <Route
-            path="/search-resault"
+            path="/search-result"
             element={<SearchResultsPage postCards={mockedPostCardModels} />}
           ></Route>
         </Route>

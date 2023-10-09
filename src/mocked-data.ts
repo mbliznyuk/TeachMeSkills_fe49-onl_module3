@@ -1,10 +1,15 @@
+import { TabModel } from '#ui/tabs/tab';
 import { PostCardModel } from './ui/post_card/post-card.model';
-import { TabModel } from './ui/tabs/tab';
+import {
+  ALL_TABS_KEY,
+  FAVOURITES_TABS_KEY,
+  POPULAR_TABS_KEY,
+} from './ui/tabs/tab.slice';
 
 export const mockedTabsModels: TabModel[] = [
-  { id: 'all', name: 'All' },
-  { id: 'favorites', name: 'My favorites' },
-  { id: 'popular', name: 'Popular' },
+  { id: ALL_TABS_KEY, name: 'All' },
+  { id: FAVOURITES_TABS_KEY, name: 'My favorites' },
+  { id: POPULAR_TABS_KEY, name: 'Popular' },
 ];
 
 export const mockedCurrentUsername: string = 'Maria Bliznyuk';
@@ -20,6 +25,7 @@ export const mockedPostCardModels: PostCardModel[] = [
     likes_amount: 16,
     dislikes_amount: 25,
     user_choice: 'like',
+    isFavorite: true,
     title:
       'Astronauts prep for new solar arrays on nearly seven-hour spacewalk',
     author: 1,
@@ -34,6 +40,7 @@ export const mockedPostCardModels: PostCardModel[] = [
     likes_amount: 14,
     dislikes_amount: 55,
     user_choice: 'dislike',
+    isFavorite: false,
     title:
       'Astronauts prep for new solar arrays on nearly seven-hour spacewalk',
     author: 2,
@@ -48,6 +55,7 @@ export const mockedPostCardModels: PostCardModel[] = [
     likes_amount: 30,
     dislikes_amount: 5,
     user_choice: null,
+    isFavorite: true,
     title:
       'Astronauts prep for new solar arrays on nearly seven-hour spacewalk',
     author: 3,
@@ -62,6 +70,7 @@ export const mockedPostCardModels: PostCardModel[] = [
     likes_amount: 12,
     dislikes_amount: 1,
     user_choice: 'like',
+    isFavorite: false,
     title:
       'Astronauts prep for new solar arrays on nearly seven-hour spacewalk',
     author: 4,
@@ -76,6 +85,7 @@ export const mockedPostCardModels: PostCardModel[] = [
     likes_amount: 23,
     dislikes_amount: 57,
     user_choice: 'dislike',
+    isFavorite: false,
     title:
       'Astronauts prep for new solar arrays on nearly seven-hour spacewalk',
     author: 5,
@@ -90,6 +100,7 @@ export const mockedPostCardModels: PostCardModel[] = [
     likes_amount: 27556,
     dislikes_amount: 57438,
     user_choice: 'like',
+    isFavorite: true,
     title:
       'Astronauts prep for new solar arrays on nearly seven-hour spacewalk',
     author: 6,
@@ -104,6 +115,7 @@ export const mockedPostCardModels: PostCardModel[] = [
     likes_amount: 26,
     dislikes_amount: 45,
     user_choice: 'dislike',
+    isFavorite: false,
     title:
       'Astronauts prep for new solar arrays on nearly seven-hour spacewalk',
     author: 7,
@@ -118,6 +130,7 @@ export const mockedPostCardModels: PostCardModel[] = [
     likes_amount: 15,
     dislikes_amount: 45,
     user_choice: 'like',
+    isFavorite: true,
     title:
       'Astronauts prep for new solar arrays on nearly seven-hour spacewalk',
     author: 8,
@@ -132,6 +145,7 @@ export const mockedPostCardModels: PostCardModel[] = [
     likes_amount: 19,
     dislikes_amount: 657,
     user_choice: null,
+    isFavorite: true,
     title:
       'Astronauts prep for new solar arrays on nearly seven-hour spacewalk',
     author: 9,
@@ -146,6 +160,7 @@ export const mockedPostCardModels: PostCardModel[] = [
     likes_amount: 22,
     dislikes_amount: 3,
     user_choice: 'like',
+    isFavorite: false,
     title:
       'Astronauts prep for new solar arrays on nearly seven-hour spacewalk',
     author: 10,
@@ -160,8 +175,24 @@ export const mockedPostCardModels: PostCardModel[] = [
     likes_amount: 25,
     dislikes_amount: 465,
     user_choice: null,
+    isFavorite: false,
     title:
       'Astronauts prep for new solar arrays on nearly seven-hour spacewalk',
     author: 11,
+  },
+  {
+    id: 12,
+    image:
+      'https://i.pinimg.com/564x/45/2f/79/452f798a828a4d95549c7bbe0661fdfa.jpg',
+    text: 'Astronauts Kayla Barron and Raja Chari floated out of the International Space Station airlock for a spacewalk Tuesday, installing brackets and struts to support new solar arrays to upgrade the research lab’s power system on the same day that crewmate Mark Vande Hei marked his 341st day in orbit, a U.S. record for a single spaceflight.',
+    date: '2023-08-28',
+    lesson_num: 12,
+    likes_amount: 45,
+    dislikes_amount: 2,
+    user_choice: null,
+    isFavorite: false,
+    title:
+      'Astronauts prep for new solar arrays on nearly seven-hour spacewalk',
+    author: 12,
   },
 ];

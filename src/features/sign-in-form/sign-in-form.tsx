@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { Input } from '#ui/input/input';
 import { Button } from '#ui/button';
 import { styled } from 'styled-components';
+import { Link } from 'react-router-dom';
 
 export const SignInForm: React.FC = () => {
   const [email, setEmail] = useState<string>('');
@@ -33,12 +34,17 @@ export const SignInForm: React.FC = () => {
       </Button>
       <LinkToSignUpFormWrapper>
         <SignUpFormText>Don't have an account? </SignUpFormText>
-        <SignUpFormLink>SignUp</SignUpFormLink>
+        <StyledLink to={'/sign-up'}>
+          <SignUpFormLink>SignUp</SignUpFormLink>
+        </StyledLink>
       </LinkToSignUpFormWrapper>
     </FormWrapper>
   );
 };
 
+const StyledLink = styled(Link)`
+  text-decoration: unset;
+`;
 const FormWrapper = styled.form`
   width: 30%;
   margin: auto;
@@ -62,7 +68,7 @@ const LinkToSignUpFormWrapper = styled.div`
 `;
 
 const SignUpFormText = styled.span`
-color: var(--text-primary-color);
+  color: var(--text-primary-color);
 `;
 
 const SignUpFormLink = styled.a`

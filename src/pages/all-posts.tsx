@@ -15,28 +15,47 @@ import {
 } from '#features/all-posts/all-posts.slice';
 import { useAppDispatch, useAppSelector } from '../hook';
 import { PostImagePreview } from '#features/post-image-preview/post-image-preview';
+import { PostCardModel } from '#ui/post_card/post-card.model';
+import {
+  ALL_TABS_KEY,
+  FAVOURITES_TABS_KEY,
+  POPULAR_TABS_KEY,
+} from '#ui/tabs/tab.slice';
 
 export const AllPostsPage: React.FC = () => {
   const dispatch = useAppDispatch();
   const { isPreviewShown } = useAppSelector((state) => state.postImagePreview);
-  const { posts, isLoading } = useAppSelector(({ allPosts }) => allPosts);
+  const { activeTab } = useAppSelector((state) => state.tabs);
+  const { posts, favoritePosts, isLoading, popularPosts } = useAppSelector(
+    ({ allPosts }) => allPosts
+  );
+
+  const getCurrentPosts = (): PostCardModel[] => {
+    switch (activeTab) {
+      case ALL_TABS_KEY:
+        return posts;
+      case FAVOURITES_TABS_KEY:
+        return favoritePosts;
+      case POPULAR_TABS_KEY:
+        return popularPosts;
+      default:
+        return posts;
+    }
+  };
 
   useEffect(() => {
     dispatch(getAllPosts());
   }, [dispatch]);
 
   useEffect(() => {
-    setTimeout(
-      () => dispatch(getAllPostsSuccess({ posts: mockedPostCardModels })),
-      2000
-    );
-  });
+    dispatch(getAllPostsSuccess({ posts: mockedPostCardModels }));
+  }, [dispatch]);
 
   if (isLoading) {
     return <div>Loading...</div>;
   }
   if (posts.length === 0) {
-    return <div>Постов нет</div>;
+    return <div>No posts</div>;
   }
 
   return (
@@ -49,7 +68,9 @@ export const AllPostsPage: React.FC = () => {
         }
         backLink={<BackLink />}
         title={<Title>Blog</Title>}
-        body={<AllPosts postCards={posts} tabs={mockedTabsModels} />}
+        body={
+          <AllPosts postCards={getCurrentPosts()} tabs={mockedTabsModels} />
+        }
       />
     </>
   );

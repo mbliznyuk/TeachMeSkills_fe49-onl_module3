@@ -9,6 +9,7 @@ export interface PostCardModel {
   likes_amount: number;
   dislikes_amount: number;
   user_choice: UserChoice;
+  isFavorite: boolean;
   title: string;
   author: number;
 }

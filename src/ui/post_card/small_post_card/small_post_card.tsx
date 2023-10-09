@@ -4,6 +4,7 @@ import { useState } from 'react';
 import { LikeDislike } from '#features/like-dislike/like-dislike';
 import { useAppDispatch } from '../../../hook';
 import { showPreview } from '#features/post-image-preview/post-image-preview.slice';
+import { FavoritePostIcon } from '#features/favorite-icon/favorite-icon';
 
 type SmallPostCardProps = {
   postCard: PostCardModel;
@@ -40,13 +41,7 @@ export const SmallPostCard: React.FC<SmallPostCardProps> = (
       >
         <LikeDislike postId={props.postCard.id}></LikeDislike>
         <SmallSaveIcoonWrapper>
-          <BookmarkIcon onClick={() => setIsSaved(!isSaved)}>
-            {isSaved ? (
-              <i className="fa-solid fa-bookmark"></i>
-            ) : (
-              <i className="fa-regular fa-bookmark"></i>
-            )}
-          </BookmarkIcon>
+          <FavoritePostIcon postId={props.postCard.id}></FavoritePostIcon>
           <i className="fa-solid fa-ellipsis"></i>
         </SmallSaveIcoonWrapper>
       </SmallIconWrapper>

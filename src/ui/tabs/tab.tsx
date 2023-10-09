@@ -4,9 +4,6 @@ import { setActiveTab } from './tab.slice';
 
 type TabsProps = {
   tabs: TabModel[];
-  selectedTab: string;
-  setSelectedTab: (id: string) => void;
-  defaultSelectedTabId?: string;
 };
 
 export interface TabModel {

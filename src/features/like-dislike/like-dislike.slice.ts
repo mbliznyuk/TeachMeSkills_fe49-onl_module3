@@ -12,21 +12,23 @@ type Rating = {
   userChoice: UserChoice;
 };
 
-const objRemoveMe = mockedPostCardModels.reduce((accumulator, value, index) => {
-  return {
-    ...accumulator,
-    [value.id]: {
-      likes: value.likes_amount,
-      dislikes: value.dislikes_amount,
-      userChoice: value.user_choice,
-    } as Rating,
-  };
-}, {});
+const ratingsPerIdMap = mockedPostCardModels.reduce(
+  (accumulator, value, index) => {
+    return {
+      ...accumulator,
+      [value.id]: {
+        likes: value.likes_amount,
+        dislikes: value.dislikes_amount,
+        userChoice: value.user_choice,
+      } as Rating,
+    };
+  },
+  {}
+);
 
-//TODO fix unLike and unDislike
 export const likeDislike = createSlice({
   name: 'likeDislike',
-  initialState: objRemoveMe as Record<number, Rating>,
+  initialState: ratingsPerIdMap as Record<number, Rating>,
   reducers: {
     setActiveLike(state, action: { payload: Payload }) {
       const data = state[action.payload.postId];
