@@ -43,6 +43,7 @@ export const AllPostsPage: React.FC = () => {
   if (isLoading) {
     return <div>Loading...</div>;
   }
+
   if (posts.length === 0) {
     return <div>No posts</div>;
   }
