@@ -13,7 +13,6 @@ type MiddlePostCardProps = {
 export const MiddlePostCard: React.FC<MiddlePostCardProps> = (
   props: MiddlePostCardProps
 ) => {
-  const [isSaved, setIsSaved] = useState<boolean>(false);
   const dispatch = useAppDispatch();
 
   return (

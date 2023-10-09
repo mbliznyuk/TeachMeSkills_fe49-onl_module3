@@ -23,7 +23,7 @@ export const SelectedPost: React.FC<SelectedPostProps> = ({
           </CardImageWrapper>
           <PostTextWrapper>
             {postCard.text.split('\n').map((element, id) => (
-              <PostText key={id}>{element}</PostText>
+              <PostText key={id}>{postCard.text}</PostText>
             ))}
           </PostTextWrapper>
         </MainWrapper>

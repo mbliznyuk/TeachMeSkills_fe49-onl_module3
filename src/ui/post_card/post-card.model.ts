@@ -13,3 +13,17 @@ export interface PostCardModel {
   title: string;
   author: number;
 }
+
+export const defaultPostCardModel: PostCardModel = {
+  id: 0,
+  image: '',
+  text: '',
+  date: '',
+  lesson_num: 0,
+  likes_amount: 0,
+  dislikes_amount: 0,
+  user_choice: 'like',
+  isFavorite: false,
+  title: '',
+  author: 0,
+};
