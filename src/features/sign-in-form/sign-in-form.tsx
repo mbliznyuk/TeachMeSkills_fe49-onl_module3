@@ -1,14 +1,25 @@
-import { useState } from 'react';
-import { Input } from '#ui/input/input';
 import { Button } from '#ui/button';
+import { Input } from '#ui/input/input';
+import { useEffect, useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 import { styled } from 'styled-components';
-import { Link } from 'react-router-dom';
+import { useAppDispatch, useAppSelector } from '../../hook';
+import { authorise } from '#features/auth/authorisation.slice';
 
 export const SignInForm: React.FC = () => {
   const [email, setEmail] = useState<string>('');
   const [password, setPassword] = useState<string>('');
   const [isFormSubmited, setIsFormSubmited] = useState<boolean>(false);
+  const dispatch = useAppDispatch();
+  const { isCompleted } = useAppSelector(({ authorisation }) => authorisation);
 
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (isCompleted) {
+      navigate('/posts');
+    }
+  }, [isCompleted, navigate]);
   return (
     <FormWrapper>
       <Input
@@ -29,7 +40,13 @@ export const SignInForm: React.FC = () => {
       <ForgotPasswordLinkWrapper>
         <ForgotPasswordLink href="#">Forgot password?</ForgotPasswordLink>
       </ForgotPasswordLinkWrapper>
-      <Button variant="primary" onClick={() => setIsFormSubmited(true)}>
+      <Button
+        variant="primary"
+        onClick={() => {
+          setIsFormSubmited(true);
+          dispatch(authorise({ email, password }));
+        }}
+      >
         Sign In
       </Button>
       <LinkToSignUpFormWrapper>
@@ -71,8 +88,7 @@ const SignUpFormText = styled.span`
   color: var(--text-primary-color);
 `;
 
-const SignUpFormLink = styled.a`
-  all: unset;
+const SignUpFormLink = styled.span`
   color: blue;
   cursor: pointer;
 `;

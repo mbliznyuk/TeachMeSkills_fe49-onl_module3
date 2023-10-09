@@ -10,7 +10,7 @@ export const AddPostPage: React.FC = () => {
       header={<Header isAuthorised={true} username="Maria Bliznyuk"></Header>}
       backLink={<BackLink />}
       title={<Title>Success</Title>}
-      body={<SuccessForm />}
+      body={<div>add post page</div>}
     />
   );
 };

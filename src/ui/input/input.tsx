@@ -33,6 +33,7 @@ const InputWrapper = styled.input<{ $borderColor?: string }>`
   height: 40px;
   background-color: white;
   padding: 15px 10px;
+  color: var(--text-secondary-button-color);
 
   &:focus-visible {
     border: 1px solid ${({ $borderColor }) => $borderColor || '#CCCCCCCC'};

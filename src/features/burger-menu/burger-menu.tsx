@@ -1,7 +1,7 @@
 import { Button } from '#ui/button';
 import { UserNameLabel } from '#ui/username-label/username-label';
 import { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 
 type BurgerMenuProps = {
@@ -49,8 +49,12 @@ export const BurgerMenu: React.FC<BurgerMenuProps> = ({
           </ThemeSwitcherDark>
         </ThemeSwitcherWrapper>
         {isAuthorised ? (
-          <StyledLink to={'/'}>
-            <Button variant={'secondary'} children={'Log Out'}></Button>
+          <StyledLink to={'/sign-in'}>
+            <Button
+              variant={'secondary'}
+              children={'Log Out'}
+              onClick={() => localStorage.clear()}
+            ></Button>
           </StyledLink>
         ) : (
           <StyledLink to={'/sign-in'}>

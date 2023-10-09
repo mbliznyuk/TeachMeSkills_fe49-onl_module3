@@ -1,19 +1,18 @@
-import { UserChoice } from '#ui/post_card/post-card.model';
+import { PostCardModel, UserChoice } from '#ui/post_card/post-card.model';
 import { createSlice } from '@reduxjs/toolkit';
-import { mockedPostCardModels } from '../../mocked-data';
 
 type Payload = {
   postId: number;
 };
 
-type Rating = {
+export type Rating = {
   likes: number;
   dislikes: number;
   userChoice: UserChoice;
 };
 
-const ratingsPerIdMap = mockedPostCardModels.reduce(
-  (accumulator, value, index) => {
+const mapPostsToRatings = (posts: PostCardModel[]): Record<number, Rating> => {
+  return posts.reduce((accumulator, value, index) => {
     return {
       ...accumulator,
       [value.id]: {
@@ -22,16 +21,18 @@ const ratingsPerIdMap = mockedPostCardModels.reduce(
         userChoice: value.user_choice,
       } as Rating,
     };
-  },
-  {}
-);
+  }, {});
+};
 
 export const likeDislike = createSlice({
   name: 'likeDislike',
-  initialState: ratingsPerIdMap as Record<number, Rating>,
+  initialState: { records: {} as Record<number, Rating> },
   reducers: {
+    setRatings(state, action: { payload: PostCardModel[] }) {
+      state.records = mapPostsToRatings(action.payload);
+    },
     setActiveLike(state, action: { payload: Payload }) {
-      const data = state[action.payload.postId];
+      const data = state.records[action.payload.postId];
       if (!data) return;
       if (data.userChoice === 'like') {
         data.likes--;
@@ -45,7 +46,7 @@ export const likeDislike = createSlice({
       data.userChoice = 'like';
     },
     setActiveDislike(state, action: { payload: Payload }) {
-      const data = state[action.payload.postId];
+      const data = state.records[action.payload.postId];
       if (!data) return;
       if (data.userChoice === 'dislike') {
         data.dislikes--;
@@ -62,6 +63,6 @@ export const likeDislike = createSlice({
 });
 
 export const {
-  actions: { setActiveLike, setActiveDislike },
+  actions: { setRatings, setActiveLike, setActiveDislike },
   reducer: likeDislikeReducer,
 } = likeDislike;

@@ -1,19 +1,7 @@
 import { AllPosts } from '#features/all-posts/all-posts-body';
+import { getAllPosts } from '#features/all-posts/all-posts.slice';
 import { BackLink } from '#features/back-link/back-link';
 import { Header } from '#features/header/header';
-import { MainTemplate } from '#ui/templates/main-template';
-import { Title } from '#ui/title/title';
-import {
-  mockedCurrentUsername,
-  mockedPostCardModels,
-  mockedTabsModels,
-} from '../mocked-data';
-import { useEffect } from 'react';
-import {
-  getAllPosts,
-  getAllPostsSuccess,
-} from '#features/all-posts/all-posts.slice';
-import { useAppDispatch, useAppSelector } from '../hook';
 import { PostImagePreview } from '#features/post-image-preview/post-image-preview';
 import { PostCardModel } from '#ui/post_card/post-card.model';
 import {
@@ -21,6 +9,11 @@ import {
   FAVOURITES_TABS_KEY,
   POPULAR_TABS_KEY,
 } from '#ui/tabs/tab.slice';
+import { MainTemplate } from '#ui/templates/main-template';
+import { Title } from '#ui/title/title';
+import { useEffect } from 'react';
+import { useAppDispatch, useAppSelector } from '../hook';
+import { mockedCurrentUsername, mockedTabsModels } from '../mocked-data';
 
 export const AllPostsPage: React.FC = () => {
   const dispatch = useAppDispatch();
@@ -45,10 +38,6 @@ export const AllPostsPage: React.FC = () => {
 
   useEffect(() => {
     dispatch(getAllPosts());
-  }, [dispatch]);
-
-  useEffect(() => {
-    dispatch(getAllPostsSuccess({ posts: mockedPostCardModels }));
   }, [dispatch]);
 
   if (isLoading) {

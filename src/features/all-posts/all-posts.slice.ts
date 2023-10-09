@@ -21,7 +21,7 @@ const allPostsSlice = createSlice({
         (element) => element.isFavorite
       );
       state.popularPosts = action.payload.posts.filter(
-        (element) => element.likes_amount > 30
+        (element) => element.likes_amount > 200
       );
     },
     getAllPostsFailure(state, error: { payload: unknown }) {

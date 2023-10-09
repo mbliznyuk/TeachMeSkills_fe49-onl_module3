@@ -12,7 +12,7 @@ type Props = {
 
 export const SelectedPostLikes: React.FC<Props> = ({ postId }) => {
   const dispatch = useAppDispatch();
-  const rating = useAppSelector((state) => state.likeDislike[postId]);
+  const rating = useAppSelector((state) => state.likeDislike.records[postId]);
   const activeLike = rating.userChoice === 'like';
   const activeDislike = rating.userChoice === 'dislike';
   const { posts } = useAppSelector((state) => state.allPosts);
