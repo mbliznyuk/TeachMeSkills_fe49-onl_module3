@@ -7,13 +7,7 @@ import { Title } from '#ui/title/title';
 export const AddPostPage: React.FC = () => {
   return (
     <MainTemplate
-      header={
-        <Header
-          usersList={['Maria Bliznyuk']}
-          isAuthorised={true}
-          username='Maria Bliznyuk'
-        ></Header>
-      }
+      header={<Header isAuthorised={true} username="Maria Bliznyuk"></Header>}
       backLink={<BackLink />}
       title={<Title>Success</Title>}
       body={<SuccessForm />}

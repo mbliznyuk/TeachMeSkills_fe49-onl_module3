@@ -1,6 +1,9 @@
 import { styled } from 'styled-components';
 import { PostCardModel } from '../post-card.model';
 import { useState } from 'react';
+import { LikeDislike } from '#features/like-dislike/like-dislike';
+import { useAppDispatch } from '../../../hook';
+import { showPreview } from '#features/post-image-preview/post-image-preview.slice';
 
 type SmallPostCardProps = {
   postCard: PostCardModel;
@@ -9,25 +12,9 @@ type SmallPostCardProps = {
 export const SmallPostCard: React.FC<SmallPostCardProps> = (
   props: SmallPostCardProps
 ) => {
-  const [isLiked, setIsLiked] = useState<boolean>(false);
-  const [isDisliked, setIsDisliked] = useState<boolean>(false);
-  const [amountOfLikes, setAmountOfLikes] = useState<number>(
-    props.postCard.likes_amount
-  );
+  const dispatch = useAppDispatch();
   const [isSaved, setIsSaved] = useState<boolean>(false);
 
-  function dislike() {
-    if (isLiked) {
-      setAmountOfLikes(amountOfLikes - 1);
-    }
-    setIsDisliked(!isDisliked);
-    setIsLiked(false);
-  }
-  function like() {
-    setIsLiked(!isLiked);
-    setIsDisliked(false);
-    setAmountOfLikes(isLiked ? amountOfLikes - 1 : amountOfLikes + 1);
-  }
   return (
     <SmallPostCardWrapper>
       <SmallMainWrapper>
@@ -35,28 +22,23 @@ export const SmallPostCard: React.FC<SmallPostCardProps> = (
           <SmallPostCardDate>{props.postCard.date}</SmallPostCardDate>
           <SmallPostCardTitle>{props.postCard.title}</SmallPostCardTitle>
         </SmallCardtextWrapper>
-        <SmallCardImageWrapper>
+        <SmallCardImageWrapper
+          onClick={(event) => {
+            event.stopPropagation();
+            event.preventDefault();
+            dispatch(showPreview({ postId: props.postCard.id }));
+          }}
+        >
           <img src={props.postCard.image} alt="#"></img>
         </SmallCardImageWrapper>
       </SmallMainWrapper>
-      <SmallIconWrapper>
-        <SmallLikeWrapper>
-          <LikeIcon onClick={like}>
-            {isLiked ? (
-              <i className="fa-solid fa-thumbs-up"></i>
-            ) : (
-              <i className="fa-regular fa-thumbs-up"></i>
-            )}
-          </LikeIcon>
-          <AmountOfLikes>{amountOfLikes}</AmountOfLikes>
-          <DislikeIcon onClick={dislike}>
-            {isDisliked ? (
-              <i className="fa-solid fa-thumbs-down"></i>
-            ) : (
-              <i className="fa-regular fa-thumbs-down"></i>
-            )}
-          </DislikeIcon>
-        </SmallLikeWrapper>
+      <SmallIconWrapper
+        onClick={(event) => {
+          event.stopPropagation();
+          event.preventDefault();
+        }}
+      >
+        <LikeDislike postId={props.postCard.id}></LikeDislike>
         <SmallSaveIcoonWrapper>
           <BookmarkIcon onClick={() => setIsSaved(!isSaved)}>
             {isSaved ? (
@@ -114,14 +96,7 @@ const SmallIconWrapper = styled.div`
   align-items: center;
   height: 24px;
 `;
-const SmallLikeWrapper = styled.div`
-  cursor: pointer;
-  width: 20%;
-  display: flex;
-  justify-content: space-between;
-  font-size: 16px;
-  align-items: center;
-`;
+
 const SmallSaveIcoonWrapper = styled.div`
   cursor: pointer;
   width: 20%;
@@ -135,21 +110,4 @@ const BookmarkIcon = styled.div`
   display: flex;
   justify-content: space-between;
   font-size: 16px;
-`;
-
-const LikeIcon = styled.div`
-  font-size: 16px;
-  margin-right: 3px;
-  color: var(--border-accent-color);
-`;
-
-const DislikeIcon = styled.div`
-  font-size: 16px;
-  color: var(--border-accent-color);
-`;
-
-const AmountOfLikes = styled.div`
-  font-size: 12px;
-  margin-right: 10px;
-  color: var(--border-accent-color);
 `;

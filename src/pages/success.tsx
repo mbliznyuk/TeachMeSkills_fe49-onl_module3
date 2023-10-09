@@ -7,12 +7,7 @@ import { Title } from '#ui/title/title';
 export const Success: React.FC = () => {
   return (
     <MainTemplate
-      header={
-        <Header
-          usersList={['Artem Malkin', 'Maria Bliznyuk']}
-          isAuthorised={true}
-        ></Header>
-      }
+      header={<Header isAuthorised={true}></Header>}
       backLink={<BackLink />}
       title={<Title>Success</Title>}
       body={<SuccessForm />}

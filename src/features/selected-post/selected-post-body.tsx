@@ -1,5 +1,5 @@
 import { SelectedPostLikes } from '#features/post-likes-panel/selected-post-likes/selected-post-likes';
-import { PostNavigationFooter } from '#features/post-navigation-footer/selected-post-navigation-footer';
+import { PostNavigationFooter } from '#features/selected-post/selected-post-navigation-footer';
 import { PostCardModel } from '#ui/post_card/post-card.model';
 import { styled } from 'styled-components';
 
@@ -9,8 +9,11 @@ type SelectedPostProps = {
   nextPostTitle: string;
 };
 
-export const SelectedPost: React.FC<SelectedPostProps> = ({ postCard, previousPostTitle, nextPostTitle}) => {
-  
+export const SelectedPost: React.FC<SelectedPostProps> = ({
+  postCard,
+  previousPostTitle,
+  nextPostTitle,
+}) => {
   return (
     <>
       <PostWrapper>
@@ -26,7 +29,10 @@ export const SelectedPost: React.FC<SelectedPostProps> = ({ postCard, previousPo
         </MainWrapper>
         <SelectedPostLikes></SelectedPostLikes>
       </PostWrapper>
-      <PostNavigationFooter previousPostTitle={previousPostTitle} nextPostTitle={nextPostTitle}></PostNavigationFooter>
+      <PostNavigationFooter
+        previousPostTitle={previousPostTitle}
+        nextPostTitle={nextPostTitle}
+      ></PostNavigationFooter>
     </>
   );
 };
@@ -40,7 +46,7 @@ const PostWrapper = styled.div`
 `;
 
 const MainWrapper = styled.div`
-margin: auto;
+  margin: auto;
   margin-bottom: 25px;
 `;
 

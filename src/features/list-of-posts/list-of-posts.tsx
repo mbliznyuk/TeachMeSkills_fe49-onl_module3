@@ -11,22 +11,36 @@ type ListOfPostsProps = {
 export const ListOfPosts: React.FC<ListOfPostsProps> = (
   props: ListOfPostsProps
 ) => {
-
-  const getPostCardbyId = (id: number) => props.postCards.find(item => (item.id === id))
+  const getPostCardbyId = (id: number) =>
+    props.postCards.find((item) => item.id === id);
   return (
     <ListOfPostsWrapper>
       <LeftWrapperOfPosts>
-        {[1, 2, 9, 3, 4, 5].map((element, id) => <StyledLink key={id} to={`/posts/${element}`}><MiddlePostCard key={id} postCard={getPostCardbyId(element)!}></MiddlePostCard></StyledLink>)}
+        {[1, 2, 9, 3, 4, 5].map((element, id) => (
+          <StyledLink key={id} to={`/posts/${element}`}>
+            <MiddlePostCard
+              key={id}
+              postCard={getPostCardbyId(element)!}
+            ></MiddlePostCard>
+          </StyledLink>
+        ))}
       </LeftWrapperOfPosts>
       <RightWrapperOfPosts>
-        {[2, 6, 7, 8, 9, 2].map((element, id) => <StyledLink key={id} to={`/posts/${element}`}><SmallPostCard key={id} postCard={getPostCardbyId(element)!}></SmallPostCard></StyledLink>)}
+        {[11, 6, 7, 8, 9, 10].map((element, id) => (
+          <StyledLink key={id} to={`/posts/${element}`}>
+            <SmallPostCard
+              key={id}
+              postCard={getPostCardbyId(element)!}
+            ></SmallPostCard>
+          </StyledLink>
+        ))}
       </RightWrapperOfPosts>
     </ListOfPostsWrapper>
   );
 };
 
 const StyledLink = styled(Link)`
-text-decoration: unset;
+  text-decoration: unset;
 `;
 
 const ListOfPostsWrapper = styled.div`

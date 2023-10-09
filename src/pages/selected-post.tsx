@@ -7,27 +7,21 @@ import { Title } from '#ui/title/title';
 import { Navigate, useParams } from 'react-router-dom';
 import { mockedPostCardModels } from '../mocked-data';
 
-
-
 export const SelectedPostPage: React.FC = () => {
-  const {postId} = useParams()
-  const numericPostId = Number(postId)
+  const { postId } = useParams();
+  const numericPostId = Number(postId);
   if (!Number.isFinite(numericPostId)) {
-    return <Navigate to={'/'}/>
+    return <Navigate to={'/'} />;
   }
-  const selectedPost = mockedPostCardModels.find(element => element.id === numericPostId)
-  if(!selectedPost) {
-    return <Navigate to={'/'}/>
+  const selectedPost = mockedPostCardModels.find(
+    (element) => element.id === numericPostId
+  );
+  if (!selectedPost) {
+    return <Navigate to={'/'} />;
   }
   return (
     <MainTemplate
-      header={
-        <Header
-          usersList={['Artem Malkin', 'Maria Bliznyuk']}
-          username="Maria Bliznyuk"
-          isAuthorised={true}
-        ></Header>
-      }
+      header={<Header username="Maria Bliznyuk" isAuthorised={true}></Header>}
       backLink={<BackLink />}
       title={<Title>{selectedPost.title}</Title>}
       body={

@@ -1,11 +1,11 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 type State = {
-    name: string,
-    email: string,
-    password: string,
-    confirmedPassword: string,
-    isFormSubmited: string,
+  name: string;
+  email: string;
+  password: string;
+  confirmedPassword: string;
+  isFormSubmited: string;
 };
 
 const signUpFormSlice = createSlice({
@@ -16,7 +16,7 @@ const signUpFormSlice = createSlice({
     password: '',
     confirmedPassword: '',
     isFormSubmited: '',
-  },
+  } as State,
   reducers: {
     setName(state, action: { payload: State['name'] }) {
       state.name = action.payload;

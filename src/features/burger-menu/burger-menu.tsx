@@ -1,9 +1,8 @@
 import { Button } from '#ui/button';
 import { UserNameLabel } from '#ui/username-label/username-label';
 import { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import styled from 'styled-components';
 import { Link } from 'react-router-dom';
+import styled from 'styled-components';
 
 type BurgerMenuProps = {
   username?: string;
@@ -14,7 +13,7 @@ export const BurgerMenu: React.FC<BurgerMenuProps> = ({
   username,
   isAuthorised,
 }) => {
-    const [isDark, setIsDark] = useState(false);
+  const [isDark, setIsDark] = useState(false);
 
   useEffect(() => {
     document.querySelector('.App')?.classList.toggle('dark', isDark);
@@ -23,46 +22,40 @@ export const BurgerMenu: React.FC<BurgerMenuProps> = ({
     <BurgerMenuWrapper>
       <BurgerMenuTopWrapper>
         {isAuthorised && <UserNameLabel username={username!}></UserNameLabel>}
-       <StyledLink to={'/'}> <Button
-          variant={'default'}
-          children={'Home'}
-           onClick={() => console.log('gg')}
-        ></Button></StyledLink>
+        <StyledLink to={'/'}>
+          {' '}
+          <Button variant={'default'} children={'Home'}></Button>
+        </StyledLink>
         {isAuthorised && (
-         <StyledLink to={'/add-post'}> <Button
-            variant={'default'}
-            children={'Add Post'}
-            onClick={() => {
-              console.log('dd');
-            }}
-          ></Button></StyledLink>
+          <StyledLink to={'/add-post'}>
+            {' '}
+            <Button variant={'default'} children={'Add Post'}></Button>
+          </StyledLink>
         )}
       </BurgerMenuTopWrapper>
       <BurgerMenuBottomWrapper>
         <ThemeSwitcherWrapper>
           <ThemeSwitcherLight onClick={() => setIsDark(false)}>
-            <i className="fa-regular fa-sun" style={{color: isDark? '#b7b7b7' : '#313037' }}></i>
+            <i
+              className="fa-regular fa-sun"
+              style={{ color: isDark ? '#b7b7b7' : '#313037' }}
+            ></i>
           </ThemeSwitcherLight>
           <ThemeSwitcherDark onClick={() => setIsDark(true)}>
-            <i className="fa-regular fa-moon" style={{color: isDark? '#313037' : '#b7b7b7'}}></i>
+            <i
+              className="fa-regular fa-moon"
+              style={{ color: isDark ? '#313037' : '#b7b7b7' }}
+            ></i>
           </ThemeSwitcherDark>
         </ThemeSwitcherWrapper>
         {isAuthorised ? (
-          <StyledLink to={'/'}><Button
-            variant={'secondary'}
-            children={'Log Out'}
-            onClick={() => {
-              console.log('hh');
-            }}
-          ></Button></StyledLink>
+          <StyledLink to={'/'}>
+            <Button variant={'secondary'} children={'Log Out'}></Button>
+          </StyledLink>
         ) : (
-          <StyledLink to={'/sign-in'}><Button
-            variant={'secondary'}
-            children={'Sign In'}
-            onClick={() => {
-              console.log('mm');
-            }}
-          ></Button></StyledLink>
+          <StyledLink to={'/sign-in'}>
+            <Button variant={'secondary'} children={'Sign In'}></Button>
+          </StyledLink>
         )}
       </BurgerMenuBottomWrapper>
     </BurgerMenuWrapper>
@@ -70,8 +63,8 @@ export const BurgerMenu: React.FC<BurgerMenuProps> = ({
 };
 
 const StyledLink = styled(Link)`
-text-decoration: unset;
-`; 
+  text-decoration: unset;
+`;
 const BurgerMenuWrapper = styled.div`
   min-width: 180px;
   min-height: 80dvh;
@@ -86,9 +79,13 @@ const BurgerMenuWrapper = styled.div`
   border-top: 1px solid #5463ca;
 `;
 
-const BurgerMenuTopWrapper = styled.div``;
+const BurgerMenuTopWrapper = styled.div`
+  width: 100%;
+`;
 
-const BurgerMenuBottomWrapper = styled.div``;
+const BurgerMenuBottomWrapper = styled.div`
+  width: 100%;
+`;
 
 const ThemeSwitcherWrapper = styled.div`
   display: flex;
