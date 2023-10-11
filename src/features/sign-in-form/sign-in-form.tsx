@@ -1,7 +1,7 @@
 import { Button } from '#ui/button';
 import { Input } from '#ui/input/input';
 import { useEffect, useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, Navigate, useNavigate } from 'react-router-dom';
 import { styled } from 'styled-components';
 import { useAppDispatch, useAppSelector } from '../../hook';
 import { authorise } from '#features/auth/authorisation.slice';
@@ -15,11 +15,10 @@ export const SignInForm: React.FC = () => {
 
   const navigate = useNavigate();
 
-  useEffect(() => {
-    if (isCompleted) {
-      navigate('/posts');
-    }
-  }, [isCompleted, navigate]);
+  if (isCompleted) {
+    return <Navigate to={'/posts'} />;
+  }
+
   return (
     <FormWrapper>
       <Input

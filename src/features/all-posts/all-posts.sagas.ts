@@ -5,10 +5,11 @@ import {
   getAllPostsSuccess,
 } from './all-posts.slice';
 import { allPostsapi as allPostsApi } from './api';
-import { AllPostsResponse, AllPostsResponseResult } from './types';
+import { AllPostsResponse } from './types';
 import { PostCardModel, UserChoice } from '#ui/post_card/post-card.model';
 import { setRatings } from '#features/like-dislike/like-dislike.slice';
 import { setPreview } from '#features/post-image-preview/post-image-preview.slice';
+import { AllPostsResponseResult } from '../../api/types';
 
 export function* getAllPostsSaga() {
   yield takeLatest(getAllPosts, function* getAllPostsHandler() {

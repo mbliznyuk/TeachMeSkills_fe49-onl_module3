@@ -5,7 +5,7 @@ import styled from 'styled-components';
 import { useAppDispatch, useAppSelector } from '../../hook';
 import { UserNameLabel } from '../../ui/username-label/username-label';
 import { toggle } from './header.slice';
-import { Search } from './search';
+import { Search } from '../search/search';
 
 type BarProps = {
   username?: string;

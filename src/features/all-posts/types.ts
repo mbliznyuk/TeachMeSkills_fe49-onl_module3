@@ -1,13 +1,4 @@
-export type AllPostsResponseResult = {
-  id: number;
-  image: string;
-  text: string;
-  date: string;
-  lesson_num: number;
-  title: string;
-  description: string;
-  author: number;
-};
+import { AllPostsResponseResult } from '../../api/types';
 
 export type AllPostsResponse = {
   count: number;
