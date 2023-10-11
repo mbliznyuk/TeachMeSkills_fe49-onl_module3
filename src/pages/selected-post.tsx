@@ -34,7 +34,7 @@ export const SelectedPostPage: React.FC = () => {
 
   return (
     <MainTemplate
-      header={<Header username="Maria Bliznyuk" isAuthorised={true}></Header>}
+      header={<Header></Header>}
       backLink={<BackLink />}
       title={<Title>{post.title}</Title>}
       body={

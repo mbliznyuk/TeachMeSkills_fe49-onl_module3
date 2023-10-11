@@ -7,7 +7,7 @@ import { Header } from '#features/header/header';
 export const SignUp: React.FC = () => {
   return (
     <MainTemplate
-      header={<Header isAuthorised={false}></Header>}
+      header={<Header isOnlyGuestPage={true}></Header>}
       backLink={<BackLink />}
       title={<Title>Sign Up</Title>}
       body={<SignUpForm />}

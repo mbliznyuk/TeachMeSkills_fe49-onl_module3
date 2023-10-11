@@ -7,7 +7,7 @@ import { Title } from '#ui/title/title';
 export const SignIn: React.FC = () => {
   return (
     <MainTemplate
-      header={<Header isAuthorised={false}></Header>}
+      header={<Header isOnlyGuestPage={true}></Header>}
       backLink={<BackLink />}
       title={<Title>Sign In</Title>}
       body={<SignInForm />}
