@@ -7,7 +7,7 @@ import { Title } from '#ui/title/title';
 export const RegistrationSuccess: React.FC = () => {
   return (
     <MainTemplate
-      header={<Header isAuthorised={false}></Header>}
+      header={<Header isOnlyGuestPage={true}></Header>}
       backLink={<BackLink />}
       title={<Title>Registration Confirmation</Title>}
       body={<RegistrationConfirmationForm />}

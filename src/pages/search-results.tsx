@@ -16,7 +16,7 @@ export const SearchResultsPage: React.FC<SearchResultsProps> = ({
 }) => {
   return (
     <SearchResults>
-      <Header username="Maria Bliznyuk" isAuthorised={true}></Header>
+      <Header></Header>
       <Container>
         <BackLink></BackLink>
         <TitleWrapper>

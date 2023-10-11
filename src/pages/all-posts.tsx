@@ -53,9 +53,7 @@ export const AllPostsPage: React.FC = () => {
       <PostImagePreview isDialogOpen={isPreviewShown}></PostImagePreview>
 
       <MainTemplate
-        header={
-          <Header username={mockedCurrentUsername} isAuthorised={true}></Header>
-        }
+        header={<Header></Header>}
         backLink={<BackLink />}
         title={<Title>Blog</Title>}
         body={

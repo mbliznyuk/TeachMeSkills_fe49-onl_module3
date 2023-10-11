@@ -28,10 +28,3 @@ export const ActivatePage: React.FC = () => {
   }
   return <div>success</div>;
 };
-/**{
-    "id": 7219,
-    "username": "sujexobimmu-3695@yopmail.com",
-    "email": "sujexobimmu-3695@yopmail.com",
-    "course_group": null
-}
-}**/

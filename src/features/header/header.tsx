@@ -1,20 +1,29 @@
 import { BurgerMenu } from '#features/burger-menu/burger-menu';
 import { faBars, faUser, faXmark } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { useEffect } from 'react';
 import styled from 'styled-components';
 import { useAppDispatch, useAppSelector } from '../../hook';
 import { UserNameLabel } from '../../ui/username-label/username-label';
-import { toggle } from './header.slice';
+import { toggle } from './is-burger-open.slice';
 import { Search } from './search';
+import { getProfile } from './username.slice';
 
-type BarProps = {
-  username?: string;
-  isAuthorised: boolean;
+type Props = {
+  isOnlyGuestPage?: boolean;
 };
 
-export const Header: React.FC<BarProps> = ({ username, isAuthorised }) => {
+export const Header: React.FC<Props> = ({ isOnlyGuestPage }) => {
   const dispatch = useAppDispatch();
   const { isBurgerOpen } = useAppSelector((state) => state.burgerMenu);
+  const { profile, isCompleted } = useAppSelector((state) => state.profile);
+
+  useEffect(() => {
+    if (!isOnlyGuestPage) {
+      dispatch(getProfile());
+    }
+  }, [dispatch, isOnlyGuestPage]);
+
   return (
     <>
       <HeaderWrapper>
@@ -26,8 +35,8 @@ export const Header: React.FC<BarProps> = ({ username, isAuthorised }) => {
           )}
         </Burger>
         <Search></Search>
-        {isAuthorised ? (
-          <UserNameLabel username={username!}></UserNameLabel>
+        {isCompleted ? (
+          <UserNameLabel username={profile.username}></UserNameLabel>
         ) : (
           <UserIcon>
             <FontAwesomeIcon icon={faUser} />
@@ -36,8 +45,8 @@ export const Header: React.FC<BarProps> = ({ username, isAuthorised }) => {
       </HeaderWrapper>
       <div style={{ display: isBurgerOpen ? 'inherit' : 'none' }}>
         <BurgerMenu
-          isAuthorised={isAuthorised}
-          username={username}
+          isAuthorised={isCompleted}
+          username={profile.username}
         ></BurgerMenu>
       </div>
     </>
