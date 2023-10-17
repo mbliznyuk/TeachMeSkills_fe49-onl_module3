@@ -1,3 +1,4 @@
+import { Footer } from '#ui/footer/footer';
 import styled from 'styled-components';
 
 type Props = {
@@ -23,11 +24,7 @@ export const MainTemplate: React.FC<Props> = ({
           <TitleContainer>{title}</TitleContainer>
           <BodyContainer>{body}</BodyContainer>
         </Main>
-        <Footer>
-          <FooterDelimiter />
-          <Year>{new Date().getFullYear()}</Year>
-          
-        </Footer>
+        <Footer></Footer>
       </ContentWithPaddings>
     </MainTemplateWrapper>
   );
@@ -46,7 +43,7 @@ const MainTemplateWrapper = styled.div`
 `;
 
 const ContentWithPaddings = styled.div`
-  width: 70%;
+  width: 80%;
   display: flex;
   flex-direction: column;
   margin: auto;
@@ -70,17 +67,5 @@ const TitleContainer = styled.div`
 `;
 
 const BodyContainer = styled.div`
-margin: auto;
+  margin: auto;
 `;
-
-const Footer = styled.footer`
-  width: 100%;
-  height: 50px;
-  color: var(--text-secondary-color);
-`;
-
-const FooterDelimiter = styled.hr`
-  width: 100%;
-`;
-
-const Year = styled.div``;

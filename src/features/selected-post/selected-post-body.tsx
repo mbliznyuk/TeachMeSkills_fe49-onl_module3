@@ -1,9 +1,7 @@
-import { styled } from 'styled-components';
-import { useState } from 'react';
-import { PostCardModel } from '#ui/post_card/post-card.model';
-
-import { SelectedPostLikes } from '#features/selected-post-likes/selected-post-likes';
+import { SelectedPostLikes } from '#features/post-likes-panel/selected-post-likes/selected-post-likes';
 import { PostNavigationFooter } from '#features/post-navigation-footer/selected-post-navigation-footer';
+import { PostCardModel } from '#ui/post_card/post-card.model';
+import { styled } from 'styled-components';
 
 type SelectedPostProps = {
   postCard: PostCardModel;

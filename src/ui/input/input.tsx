@@ -30,7 +30,7 @@ const InputWrapper = styled.input<{ $borderColor?: string }>`
   box-sizing: border-box;
   border: 1px solid ${({ $borderColor }) => $borderColor || 'black'};
   width: 100%;
-  height: 45px;
+  height: 40px;
   background-color: white;
   padding: 15px 10px;
 
@@ -40,6 +40,6 @@ const InputWrapper = styled.input<{ $borderColor?: string }>`
 `;
 
 const Error = styled.div`
-  height: 18px;
-  color: red;
+  height: 16px;
+  color: var(--text-error-color);
 `;

@@ -76,7 +76,7 @@ const SmallPostCardWrapper = styled.div`
   width: 269px;
   background-color: var(--background-primary-color);
   padding: 10px 10px;
-  border-bottom: 1px solid #cfd0d1;
+  border-bottom: 1px solid var(--border-primary-color);
 `;
 const SmallMainWrapper = styled.div`
   display: flex;
@@ -93,7 +93,7 @@ const SmallPostCardDate = styled.div`
 `;
 
 const SmallPostCardTitle = styled.h2`
-  color: var(--text-secondary-color);
+  color: var(--text-primary-color);
   line-height: 16px;
   font-size: 16px;
   margin: 10px 0;
@@ -129,6 +129,7 @@ const SmallSaveIcoonWrapper = styled.div`
   display: flex;
   justify-content: space-between;
   font-size: 16px;
+  color: var(--border-accent-color);
 `;
 
 const BookmarkIcon = styled.div`
@@ -140,12 +141,16 @@ const BookmarkIcon = styled.div`
 const LikeIcon = styled.div`
   font-size: 16px;
   margin-right: 3px;
+  color: var(--border-accent-color);
 `;
+
 const DislikeIcon = styled.div`
   font-size: 16px;
+  color: var(--border-accent-color);
 `;
 
 const AmountOfLikes = styled.div`
-  font-size: 14px;
+  font-size: 12px;
   margin-right: 10px;
+  color: var(--border-accent-color);
 `;

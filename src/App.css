@@ -1,20 +1,29 @@
 @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css');
 
 .App {
-  --background-primary-color: #ebebeb;
-  --background-accent-color: #cccccc;
-  --text-primary-color: black;
-  --text-secondary-color:  #403f44;
-  --border-primary-color: #adadad;
-  --border-accent-color: #2536a7;
+  --background-primary-color: #F3F3F3;
+  --background-accent-color:#2231AA;
+  --background-accent-color2: #5360CD;
+  --background-accent-clor3: #E8E8E8;
+  --text-primary-color: #313037;
+  --text-secondary-color: #848486;
+  --text-hover-color:#2231AA;
+  --switcher-color:#5360CD;
+  --text-error-color: #FD3419;
+  --border-primary-color: #8D8E97;
+  --border-accent-color: #313037;
   
   
   &.dark {
-    --background-primary-color: black;
-    --background-accent-color: #cccccc;
-    --text-primary-color: white;
-    --text-secondary-color: gray;
-    --border-primary-color: gray;
-    --border-accent-color: #2536a7;
+    --background-primary-color: #313037;
+    --background-accent-color: #2231AA;
+    --background-accent-color2: #5360CD;
+    --background-accent-clor3: #E8E8E8;
+    --switcher-color:#ffff;
+    --text-primary-color: #FFFFFF;
+    --text-secondary-color: #8D8E97;
+    --text-error-color: #FD3419;
+    --border-primary-color: #8D8E97;
+    --border-accent-color: #FFFFFF;
   }
 }

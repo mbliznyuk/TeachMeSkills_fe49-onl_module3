@@ -44,13 +44,13 @@ const ButtonWrapper = styled.button<{
       case 'primary': {
         return css`
           border: 1px solid white;
-          background: var(--border-accent-color);
+          background: var(--background-accent-color);
           color: white;
           text-align: center;
           font-size: 20px;
           font-weight: 600;
           &:hover {
-            box-shadow: 0px 0px 22px 12px rgba(237, 238, 245, 0.4) inset;
+            background-color: var(--background-accent-color2);
           }
         `;
       }

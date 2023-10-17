@@ -1,13 +1,16 @@
 import { PostCardModel } from './ui/post_card/post-card.model';
 import { TabModel } from './ui/tabs/tab';
 
-export const tabsModels: TabModel[] = [
+export const mockedTabsModels: TabModel[] = [
   { id: 1, name: 'All' },
   { id: 2, name: 'My favorites' },
   { id: 3, name: 'Popular' },
 ];
 
-export const postCardModels: PostCardModel[] = [
+export const mockedUsernames: string[] = ['Artem Malkin', 'Maria Bliznyuk'];
+export  const mockedCurrentUsername: string ='Maria'
+
+export const mockedPostCardModels: PostCardModel[] = [
   {
     id: 1,
     image: 'https://i.pinimg.com/564x/2d/9f/67/2d9f676a7210c693186dac6c61a17ac9.jpg',

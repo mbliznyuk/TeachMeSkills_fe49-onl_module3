@@ -24,7 +24,7 @@ export const AllPostsNavigationFooter: React.FC<Props> = () => {
 
 const PostNavigationFooterWrapper = styled.div`
   display: flex;
-  height: 90px;
+  height: 72px;
   justify-content: space-between;
   align-items: center;
 `;
@@ -35,6 +35,11 @@ const NexPostNavigationWrapper = styled.div`
   justify-content: flex-end;
   align-items: center;
   width: 45%;
+  color: var(--text-primary-color);
+  
+  &:hover {
+    color: var(--background-accent-color);
+  }
 `;
 
 const PreviousPostNavigationWrapper = styled.div`
@@ -42,6 +47,11 @@ const PreviousPostNavigationWrapper = styled.div`
   display: flex;
   align-items: center;
   width: 45%;
+  color: var(--text-primary-color);
+
+  &:hover {
+    color: var(--background-accent-color);
+  }
 `;
 
 const NextText = styled.div`

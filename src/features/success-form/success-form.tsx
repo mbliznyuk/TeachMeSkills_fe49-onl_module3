@@ -24,7 +24,7 @@ const SuccessFormWrapper = styled.div`
 `;
 const SuccessFormTextWrapper = styled.div`
   margin-bottom: 35px;
-  color: var(--text-secondary-color);
+  color: var(--text-primary-color);
 `;
 const SuccessFormText = styled.div`
   line-height: 30px;
